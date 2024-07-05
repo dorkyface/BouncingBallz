@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3dm55rhhetn"]
+
+[ext_resource type="Script" path="res://game_camera.gd" id="1_1divu"]
+
+[node name="GameCamera" type="Camera3D"]
+transform = Transform3D(0.998419, 0, 0.0562049, 0, 1, 0, -0.0562049, 0, 0.998419, 0, 0, 4.49196)
+script = ExtResource("1_1divu")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://06tq7n4ou2da"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_3cpv0"]
+[ext_resource type="Texture2D" uid="uid://upgpdy4nf4lo" path="res://image_search_1719763705692.jpg" id="2_g7eaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bbbr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvosf"]
+shading_mode = 0
+albedo_texture = ExtResource("2_g7eaf")
+
+[sub_resource type="SphereMesh" id="SphereMesh_r4uwa"]
+material = SubResource("StandardMaterial3D_xvosf")
+
+[node name="Ball" type="CharacterBody3D" groups=["BALL"]]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+slide_on_ceiling = false
+script = ExtResource("1_3cpv0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3bbbr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_r4uwa")

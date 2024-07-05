@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmcejdffuf2xv"]
+
+[ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
+[ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
+[ext_resource type="PackedScene" uid="uid://b12s7044cxayt" path="res://tile_segment.tscn" id="2_q3ihe"]
+[ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
+[ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
+
+[node name="TestLvl" type="Node3D"]
+
+[node name="Ball" parent="." instance=ExtResource("2_lrcoa")]
+
+[node name="GameCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.998419, 0, 0.0562049, 0, 1, 0, -0.0562049, 0, 0.998419, 0, 0, 4.49196)
+script = ExtResource("2_bon2a")
+
+[node name="TileSegment" parent="." instance=ExtResource("2_q3ihe")]
+
+[node name="TileSegment2" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="TileSegment3" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="TileSegment4" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="TileSegment5" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="TileSegment6" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Shadow" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("3_o81jc")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2, 0)
+size = Vector3(1, 1, 1)
+modulate = Color(0, 0, 0, 0.666667)
+upper_fade = 0.00197085
+lower_fade = 0.00408071
+ball = NodePath("../Ball")
+
+[node name="UI" parent="." instance=ExtResource("4_20506")]

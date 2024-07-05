@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs73lylrvuikd"]
+
+[ext_resource type="Script" path="res://tile.gd" id="1_36sld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mes52"]
+size = Vector3(1, 0.2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akd4l"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0.91, 0.842963, 0.6734, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_el60t"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_akd4l")
+size = Vector2(1, 2)
+
+[sub_resource type="Animation" id="Animation_3x3yo"]
+resource_name = "triggered"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.3, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.91, 0.842963, 0.6734, 1), Color(0.239216, 1, 0.129412, 1), Color(0.0744091, 0.514886, 2.5028e-06, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6rpfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.91, 0.842963, 0.6734, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67u82"]
+_data = {
+"RESET": SubResource("Animation_6rpfw"),
+"triggered": SubResource("Animation_3x3yo")
+}
+
+[node name="Tile" type="StaticBody3D"]
+transform = Transform3D(1.00455, 0, 0, 0, 1.00455, 0, 0, 0, 1.00455, 0, -0.00454545, 0)
+script = ExtResource("1_36sld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mes52")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_el60t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_67u82")
+}

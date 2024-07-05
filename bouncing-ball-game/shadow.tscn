@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4dkv6vm43j5v"]
+
+[ext_resource type="Texture2D" uid="uid://c01qnhqyh8l3e" path="res://black_circle.png" id="1_jg8ny"]
+[ext_resource type="Script" path="res://shadow.gd" id="2_4kvjk"]
+
+[node name="Shadow" type="Decal"]
+texture_albedo = ExtResource("1_jg8ny")
+script = ExtResource("2_4kvjk")
