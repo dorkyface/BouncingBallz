@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		rotate_z(rotation_y)
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	# Initialize the tiles into a circle arrangement
 	arrange_children_in_circle()
@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	var rot = 0.05 * (int(Input.is_action_pressed("ui_left")) - int(Input.is_action_pressed("ui_right")))
 	rotate_z(rot)
 	
-	
+	if Manager.GO == false: return
 	position.z += delta * speed_calc()
 	if position.z >= TILE_DISTANCE_LIMIT:
 		position.z = -RESET_DISTANCE_MULTIPLIER * (SEG_COUNT-1)

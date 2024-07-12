@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	
 	# To detect if the player has landed on it, make a SIMULATED collision check
 	# as if the tile is moving up.
-	var collide = move_and_collide(Vector3(0,0.1,0), true)
+	var collide = move_and_collide(Vector3(0,0.3,0), true)
 	
 	# If the simulation predicts no collision, do nothing.
 	if collide == null: return

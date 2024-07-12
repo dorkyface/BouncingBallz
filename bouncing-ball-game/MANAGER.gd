@@ -1,5 +1,6 @@
 extends Node
 
+var GO : bool = false
 var SCORE = 0
 
 # Called when the node enters the scene tree for the first time.

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ball.gd" id="1_3cpv0"]
 [ext_resource type="Texture2D" uid="uid://upgpdy4nf4lo" path="res://image_search_1719763705692.jpg" id="2_g7eaf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3bbbr"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_vkscq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvosf"]
 shading_mode = 0
@@ -20,7 +20,7 @@ slide_on_ceiling = false
 script = ExtResource("1_3cpv0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_3bbbr")
+shape = SubResource("SphereShape3D_vkscq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_r4uwa")
