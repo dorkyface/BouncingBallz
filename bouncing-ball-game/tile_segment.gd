@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	rotate_z(rot)
 	
 	if Manager.GO == false: return
-	position.z += delta * speed_calc()
+	position.z += delta * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
 	if position.z >= TILE_DISTANCE_LIMIT:
 		position.z = -RESET_DISTANCE_MULTIPLIER * (SEG_COUNT-1)
 		on_reset()
@@ -68,12 +68,12 @@ func _process(delta: float) -> void:
 # This version reaches 4x speed at 80 points.
 # It cannot go higher than 5 (horizontal asymptote), no matter how large the score.
 # It starts at a multiplier of 1x.
-func speed_calc():
+func speed_calc(n : int):
 	var M = 100
 	var O = 25
 	var C = 5
 	var numerator = -M
-	var denominator = Manager.SCORE + O
+	var denominator = n + O
 	var speed = (numerator / denominator) + C
 	return speed
 
@@ -99,6 +99,8 @@ func arrange_children_in_circle():
 		child.rotate_object_local(Vector3(0, 0, 1), angle + PI/2)
 	
 
+#Needs a minor rewrite to solve for the edgecase where ALL children end up disabled.
+#Not very likely to happen, but CAN happen.
 func disable_children_randomly(to_disable: bool):
 	for i in range(get_child_count()):
 		var child = get_child(i) as Node3D

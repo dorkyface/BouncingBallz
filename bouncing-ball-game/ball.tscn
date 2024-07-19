@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://06tq7n4ou2da"]
+[gd_scene load_steps=10 format=3 uid="uid://06tq7n4ou2da"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_3cpv0"]
 [ext_resource type="Texture2D" uid="uid://upgpdy4nf4lo" path="res://image_search_1719763705692.jpg" id="2_g7eaf"]
+[ext_resource type="Texture2D" uid="uid://cs1lv7ema0e7q" path="res://UI Assets/Images and Textures/muzzleFlash0_leftshoe18.png" id="3_caltr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vkscq"]
 
@@ -11,6 +12,68 @@ albedo_texture = ExtResource("2_g7eaf")
 
 [sub_resource type="SphereMesh" id="SphereMesh_r4uwa"]
 material = SubResource("StandardMaterial3D_xvosf")
+
+[sub_resource type="Animation" id="Animation_jt6g5"]
+resource_name = "FLASHING"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(0.321948, 0.321948, 4.81308e-08, 0.764706), Color(1, 1, 0, 0.529412), Color(1, 1, 0, 1), Color(0.462745, 0.462745, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f80cj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ve54v"]
+_data = {
+"FLASHING": SubResource("Animation_jt6g5"),
+"RESET": SubResource("Animation_f80cj")
+}
 
 [node name="Ball" type="CharacterBody3D" groups=["BALL"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
@@ -24,3 +87,19 @@ shape = SubResource("SphereShape3D_vkscq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_r4uwa")
+
+[node name="StreakFlashSprite" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.290184)
+visible = false
+modulate = Color(1, 1, 0, 1)
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("3_caltr")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 128)
+
+[node name="StreakFlashAnimationPlayer" type="AnimationPlayer" parent="StreakFlashSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_ve54v")
+}

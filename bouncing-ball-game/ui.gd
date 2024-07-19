@@ -23,6 +23,7 @@ func _on_play_button_button_up() -> void:
 func _on_options_button_toggled(toggled_on: bool) -> void:
 	print("clicked")
 	optionsMenu.visible = toggled_on
+	get_tree().paused = toggled_on
 
 
 func _on_quit_button_button_up() -> void:

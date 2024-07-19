@@ -1,53 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj2b7ate03lh2"]
+[gd_scene load_steps=10 format=3 uid="uid://cj2b7ate03lh2"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_7ayhc"]
-[ext_resource type="FontFile" uid="uid://fdit5navxtrc" path="res://UI Assets/Fonts/Kenney Future.ttf" id="2_oay7t"]
+[ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="2_n7ldq"]
 [ext_resource type="Texture2D" uid="uid://dlrqb0kho12ik" path="res://UI Assets/Images and Textures/button_round_depth_flat.png" id="2_xbpel"]
 [ext_resource type="Texture2D" uid="uid://3pfxcn2fwirc" path="res://UI Assets/Images and Textures/button_round_flat.png" id="3_cy4ku"]
-[ext_resource type="Texture2D" uid="uid://ckxmbnydwb8bm" path="res://UI Assets/Images and Textures/arrow_basic_e.svg" id="4_5qd8p"]
 [ext_resource type="Texture2D" uid="uid://c6s6l331ao04u" path="res://UI Assets/Images and Textures/sheet_white2x.png" id="4_l1dbh"]
-
-[sub_resource type="Theme" id="Theme_t20gq"]
-default_font = ExtResource("2_oay7t")
-
-[sub_resource type="Animation" id="Animation_5har1"]
-resource_name = "clicked_play"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(2, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
+[ext_resource type="Texture2D" uid="uid://t31026jxomn4" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Play_Button.png" id="6_p1f5t"]
 
 [sub_resource type="Animation" id="Animation_ugi45"]
 length = 0.001
@@ -88,6 +46,45 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_5har1"]
+resource_name = "clicked_play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wagjb"]
 _data = {
 "RESET": SubResource("Animation_ugi45"),
@@ -119,21 +116,30 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme = SubResource("Theme_t20gq")
+theme = ExtResource("2_n7ldq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 72
 text = "0"
 
 [node name="Error Console" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("2_n7ldq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 text = "this is some test text "
 
 [node name="Options Button" type="TextureButton" parent="MarginContainer"]
+process_mode = 3
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("2_xbpel")
 texture_pressed = ExtResource("3_cy4ku")
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Options Button"]
+process_mode = 3
 modulate = Color(0.295867, 0.295866, 0.295866, 1)
 position = Vector2(32, 30)
 scale = Vector2(0.65625, 0.65625)
@@ -174,34 +180,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
+offset_left = -40.0
 offset_top = -64.0
-offset_right = 64.0
+offset_right = 88.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("2_xbpel")
-texture_pressed = ExtResource("3_cy4ku")
+texture_normal = ExtResource("6_p1f5t")
+ignore_texture_size = true
 stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="PlayControl/Play Button"]
-modulate = Color(0.00820202, 0.00820202, 0.00820202, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_5qd8p")
 
 [node name="Play Animator" type="AnimationPlayer" parent="PlayControl"]
 root_node = NodePath("../Play Button")
@@ -219,17 +209,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 60
+theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Options Menu Title" type="RichTextLabel" parent="Options Menu"]
-custom_minimum_size = Vector2(300, 100)
+[node name="Label" type="Label" parent="Options Menu"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
+theme = ExtResource("2_n7ldq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 72
 text = "Options"
-fit_content = true
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options Menu"]
 layout_mode = 2

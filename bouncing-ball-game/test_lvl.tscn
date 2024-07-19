@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmcejdffuf2xv"]
+[gd_scene load_steps=7 format=3 uid="uid://bmcejdffuf2xv"]
 
 [ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
 [ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
 [ext_resource type="PackedScene" uid="uid://b12s7044cxayt" path="res://tile_segment.tscn" id="2_q3ihe"]
 [ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
 [ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
+
+[sub_resource type="Environment" id="Environment_uki13"]
+background_mode = 1
+background_color = Color(0.845124, 0.910668, 1, 1)
 
 [node name="TestLvl" type="Node3D"]
 
@@ -40,3 +44,6 @@ lower_fade = 0.00408071
 ball = NodePath("../Ball")
 
 [node name="UI" parent="." instance=ExtResource("4_20506")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uki13")

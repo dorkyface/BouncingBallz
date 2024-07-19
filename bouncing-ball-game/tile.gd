@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	# To detect if the player has landed on it, make a SIMULATED collision check
 	# as if the tile is moving up.
 	var collide = move_and_collide(Vector3(0,0.3,0), true)
+	#if collide == null: move_and_collide(Vector3(0.3,0.3,0), true)
+	#if collide == null: move_and_collide(Vector3(-0.3,0.3,0), true)
 	
 	# If the simulation predicts no collision, do nothing.
 	if collide == null: return
@@ -24,5 +26,7 @@ func _process(delta: float) -> void:
 	# (and not another tile, for instance)
 	if collide.get_collider().is_in_group("BALL"):
 		Manager.SCORE += 1
+		Manager.STREAK += 1
+		#print(Manager.STREAK)
 		animPlayer.play("triggered")
 		triggered = true
