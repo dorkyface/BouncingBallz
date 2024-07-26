@@ -99,13 +99,18 @@ func arrange_children_in_circle():
 		child.rotate_object_local(Vector3(0, 0, 1), angle + PI/2)
 	
 
-#Needs a minor rewrite to solve for the edgecase where ALL children end up disabled.
-#Not very likely to happen, but CAN happen.
+
 func disable_children_randomly(to_disable: bool):
+	var disabled_children = 0
 	for i in range(get_child_count()):
 		var child = get_child(i) as Node3D
-		if child and randf() < disable_probability:
+		if child and randf() < (disable_probability - (0.1 * disabled_children)):
+			disabled_children += 1
+			
+			
 			child.visible = !to_disable
+			
+			
 			# Disable collision shapes if any
 			disable_collisions(child, to_disable)
 

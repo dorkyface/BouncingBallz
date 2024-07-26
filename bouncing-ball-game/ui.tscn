@@ -134,6 +134,8 @@ text = "this is some test text "
 [node name="Options Button" type="TextureButton" parent="MarginContainer"]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 toggle_mode = true
 texture_normal = ExtResource("2_xbpel")
 texture_pressed = ExtResource("3_cy4ku")
