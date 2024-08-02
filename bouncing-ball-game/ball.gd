@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const JUMP_VELOCITY : float = 4.5
+@export var JUMP_VELOCITY : float = 4.5
 @onready var col_shape : CollisionShape3D = $CollisionShape3D
 
 @onready var streak_flash_sprite : Sprite3D = $StreakFlashSprite
@@ -8,9 +8,10 @@ const JUMP_VELOCITY : float = 4.5
 
 @onready var ball_mesh : MeshInstance3D = $MeshInstance3D
 @onready var rng = RandomNumberGenerator.new()
-const SQUASH_SCALE : Vector3 = Vector3(1.25, 0.5, 1.25)
+@onready var base_scale : Vector3 = Vector3.ONE * 0.01
+@onready var SQUASH_SCALE : Vector3 = Vector3(1.25, 0.5, 1.25) * 0.01
 const SQUASH_TIME : float = 0.05
-const STRETCH_SCALE : Vector3 = Vector3(0.75, 1.25, 0.75)
+@onready var STRETCH_SCALE : Vector3 = Vector3(0.75, 1.25, 0.75) * 0.01
 const STRETCH_TIME : float = 0.2
 const SQUASH_N_STRETCH_RETURN_TIME = 0.4
 const TUMBLE_TIME = 0.8
@@ -76,7 +77,7 @@ func call_tween_bounce_animations():
 	# The logic of the squash and stretch effect is extrmely straightforward.
 	ball_mesh_tween.tween_property(ball_mesh,"scale", SQUASH_SCALE, SQUASH_TIME)
 	ball_mesh_tween.tween_property(ball_mesh,"scale", STRETCH_SCALE, STRETCH_TIME)
-	ball_mesh_tween.tween_property(ball_mesh,"scale", Vector3.ONE, SQUASH_N_STRETCH_RETURN_TIME)
+	ball_mesh_tween.tween_property(ball_mesh,"scale", base_scale, SQUASH_N_STRETCH_RETURN_TIME)
 	
 	# The ball also tumbles either across its x or y axis.
 	# Which axis is determined randomly.

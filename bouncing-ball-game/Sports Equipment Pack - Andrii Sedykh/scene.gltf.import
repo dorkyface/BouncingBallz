@@ -1,0 +1,150 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bpckowqrlx45j"
+path="res://.godot/imported/scene.gltf-3cf240c00cdd7ba199b92ade659c2b1f.scn"
+
+[deps]
+
+source_file="res://Sports Equipment Pack - Andrii Sedykh/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-3cf240c00cdd7ba199b92ade659c2b1f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"meshes": {
+"Sketchfab_Scene_Baseball_Baseball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Baseball.res"
+},
+"Sketchfab_Scene_Basketball_Basketball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Basket Ball.res"
+},
+"Sketchfab_Scene_Beach_Ball_Beach_Ball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Beach Ball.res"
+},
+"Sketchfab_Scene_Bowling_Ball_Bowling_Ball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Bowling Ball.res"
+},
+"Sketchfab_Scene_Dice_Dice_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Dice.res"
+},
+"Sketchfab_Scene_Football_Football_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Football.res"
+},
+"Sketchfab_Scene_Golf_Ball_Golf_Ball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Golf Ball.res"
+},
+"Sketchfab_Scene_Kettlebell_Kettlebell_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Kettle Bell.res"
+},
+"Sketchfab_Scene_Shuttlecock_Shuttlecock_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Shuttlecock.res"
+},
+"Sketchfab_Scene_Soccer_Ball_Soccer_Ball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Soccer Ball.res"
+},
+"Sketchfab_Scene_Tennis_Ball_Tennis_Ball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Tennis Ball.res"
+},
+"Sketchfab_Scene_Voleyball_Voleyball_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Sports Equipment Pack - Andrii Sedykh/Meshes/Beach Ball.res"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -139,7 +139,7 @@ theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
-text = "this is some test text "
+text = "Version Alpha 5.1"
 
 [node name="Options Button" type="TextureButton" parent="MarginContainer"]
 process_mode = 3

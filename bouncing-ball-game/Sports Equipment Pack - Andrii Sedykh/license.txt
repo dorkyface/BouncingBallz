@@ -1,0 +1,8 @@
+Model Information:
+* title:	Sports Equipment Pack
+* source:	https://sketchfab.com/3d-models/sports-equipment-pack-fa45b5a5312f4f3085c47b6556d670e5
+* author:	Andrii Sedykh (https://sketchfab.com/andriisedykh)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

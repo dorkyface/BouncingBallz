@@ -1,18 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://06tq7n4ou2da"]
+[gd_scene load_steps=8 format=3 uid="uid://06tq7n4ou2da"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_3cpv0"]
-[ext_resource type="Texture2D" uid="uid://upgpdy4nf4lo" path="res://image_search_1719763705692.jpg" id="2_g7eaf"]
+[ext_resource type="ArrayMesh" uid="uid://bc3h3shfcj52n" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/Bowling Ball.res" id="2_i5vt4"]
 [ext_resource type="Texture2D" uid="uid://cs1lv7ema0e7q" path="res://UI Assets/Images and Textures/muzzleFlash0_leftshoe18.png" id="3_caltr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vkscq"]
 radius = 0.4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvosf"]
-shading_mode = 0
-albedo_texture = ExtResource("2_g7eaf")
-
-[sub_resource type="SphereMesh" id="SphereMesh_r4uwa"]
-material = SubResource("StandardMaterial3D_xvosf")
 
 [sub_resource type="Animation" id="Animation_jt6g5"]
 resource_name = "FLASHING"
@@ -88,7 +81,9 @@ script = ExtResource("1_3cpv0")
 shape = SubResource("SphereShape3D_vkscq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_r4uwa")
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+layers = 5
+mesh = ExtResource("2_i5vt4")
 
 [node name="StreakFlashSprite" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.290184)

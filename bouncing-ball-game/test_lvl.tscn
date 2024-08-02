@@ -41,9 +41,14 @@ size = Vector3(1, 1, 1)
 modulate = Color(0, 0, 0, 0.545098)
 upper_fade = 0.00197085
 lower_fade = 0.00408071
+cull_mask = 1048570
 ball = NodePath("../Ball")
 
 [node name="UI" parent="." instance=ExtResource("4_20506")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uki13")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 6.04519, 0, 0)
+light_cull_mask = 4294967292
