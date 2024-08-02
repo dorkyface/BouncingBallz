@@ -1,31 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://b12s7044cxayt"]
 
 [ext_resource type="Script" path="res://tile_segment.gd" id="1_ohuat"]
-[ext_resource type="PackedScene" uid="uid://bs73lylrvuikd" path="res://tile.tscn" id="2_w13qf"]
+[ext_resource type="PackedScene" uid="uid://dixaclpnj5c1d" path="res://tile_area.tscn" id="2_kn4hy"]
 
 [node name="TileSegment" type="Node3D" groups=["SEGMENT"]]
 script = ExtResource("1_ohuat")
 
-[node name="Tile" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile8" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area2" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile7" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area3" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile6" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area4" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile5" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area5" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile4" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area6" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile2" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area7" parent="." instance=ExtResource("2_kn4hy")]
 
-[node name="Tile3" parent="." instance=ExtResource("2_w13qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Tile Area8" parent="." instance=ExtResource("2_kn4hy")]

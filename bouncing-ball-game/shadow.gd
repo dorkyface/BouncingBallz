@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 	if ball == null: return
 	
 	# Grows and shrinks the shadow based on how far away the ball is.
-	scale = start_scale * (1.0/(position.distance_to(ball.position)+1))
+	scale = start_scale * (1.5/(position.distance_to(ball.position)+1))

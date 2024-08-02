@@ -5,4 +5,5 @@
 
 [node name="Shadow" type="Decal"]
 texture_albedo = ExtResource("1_jg8ny")
+cull_mask = 1048574
 script = ExtResource("2_4kvjk")

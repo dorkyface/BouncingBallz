@@ -12,7 +12,7 @@ const SQUASH_SCALE : Vector3 = Vector3(1.25, 0.5, 1.25)
 const SQUASH_TIME : float = 0.05
 const STRETCH_SCALE : Vector3 = Vector3(0.75, 1.25, 0.75)
 const STRETCH_TIME : float = 0.2
-const SQUASH_N_STRETCH_RETURN_TIME = 0.8
+const SQUASH_N_STRETCH_RETURN_TIME = 0.4
 const TUMBLE_TIME = 0.8
 
 var MINIMUM_HEIGHT_LIMIT = -5
@@ -46,7 +46,9 @@ func _physics_process(delta: float) -> void:
 	if position.y <= MINIMUM_HEIGHT_LIMIT:
 		position.y = RESPAWN_HEIGHT
 		velocity.y = 0
-		Manager.STREAK = 0
+		Manager.on_player_death()
+		#Manager.PREVIOUS_SCORE = Manager.STREAK
+		#Manager.STREAK = 0
 	
 	# Streaking is triggered when the ball "grips" the underside of platforms.
 	# When this is happening, the ball isn't changing its y position.
@@ -55,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if abs(position.y - last_frame_y) < 0.01:
 		hang_time += 1
 		if hang_time >= HANG_TIME_STREAK_MINIMUM:
-			Manager.SCORE += 1
+			#Manager.SCORE += 1
 			Manager.STREAK += 1
 			streak_flash_sprite.visible = true
 			streak_flash_anim.play("FLASHING")

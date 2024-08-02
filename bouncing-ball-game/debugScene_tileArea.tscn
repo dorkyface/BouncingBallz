@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwq1w01pbnunl"]
+
+[ext_resource type="PackedScene" uid="uid://dixaclpnj5c1d" path="res://tile_area.tscn" id="1_pi8vu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.18571)
+
+[node name="Tile Area" parent="." instance=ExtResource("1_pi8vu")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Tile Area"]
+transform = Transform3D(1, 0, 0, 0, 0.348147, 0.93744, 0, -0.93744, 0.348147, 2.56132, 0, 0)
