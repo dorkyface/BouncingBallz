@@ -25,6 +25,8 @@ var hang_time : int = 0
 
 func _ready() -> void:
 	rng.randomize()
+	ball_mesh.mesh = find_mesh_resource_by_name("res://Sports Equipment Pack - Andrii Sedykh/Meshes/", Manager.BALL)
+	print(ball_mesh.mesh.resource_name)
 
 func _physics_process(delta: float) -> void:
 	if Manager.GO == false: return
@@ -96,3 +98,26 @@ func call_tween_bounce_animations():
 		ball_mesh, rotationAngles[axis], 
 		2 * PI * s, 
 		TUMBLE_TIME).from(0)
+
+
+
+func find_mesh_resource_by_name(resource_path: String, mesh_name: String) -> Mesh:
+	var dir = DirAccess.open(resource_path)
+	if not dir:
+		push_error("Cannot open directory: " + resource_path)
+		return null
+	
+	dir.list_dir_begin()
+	
+	var file_name = dir.get_next()
+	while file_name != "":
+		if file_name.ends_with(".res"):
+			var mesh_resource = ResourceLoader.load(dir.get_current_dir() + "/" + file_name)
+			if mesh_resource and mesh_resource is Mesh and file_name.get_basename() == mesh_name:
+				return mesh_resource
+		
+		file_name = dir.get_next()
+	
+	dir.list_dir_end()
+	print("Mesh resource not found: " + mesh_name)
+	return null

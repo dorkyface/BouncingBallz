@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj2b7ate03lh2"]
+[gd_scene load_steps=12 format=3 uid="uid://cj2b7ate03lh2"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_7ayhc"]
 [ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="2_n7ldq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://3pfxcn2fwirc" path="res://UI Assets/Images and Textures/button_round_flat.png" id="3_cy4ku"]
 [ext_resource type="Texture2D" uid="uid://c6s6l331ao04u" path="res://UI Assets/Images and Textures/sheet_white2x.png" id="4_l1dbh"]
 [ext_resource type="Texture2D" uid="uid://t31026jxomn4" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Play_Button.png" id="6_p1f5t"]
+[ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="7_w11xj"]
+[ext_resource type="Texture2D" uid="uid://dv0x7suon4kyu" path="res://UI Assets/Images and Textures/button_rectangle_depth_border.png" id="8_776hb"]
 
 [sub_resource type="Animation" id="Animation_ugi45"]
 length = 0.001
@@ -139,7 +141,7 @@ theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
-text = "Version Alpha 5.1"
+text = "Version Alpha 6.0"
 
 [node name="Options Button" type="TextureButton" parent="MarginContainer"]
 process_mode = 3
@@ -160,6 +162,7 @@ region_enabled = true
 region_rect = Rect2(320, 1720, 64, 64)
 
 [node name="Quit Button" type="TextureButton" parent="MarginContainer"]
+process_mode = 3
 modulate = Color(0.862745, 0.368627, 0.368627, 1)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -240,18 +243,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Options Menu/VBoxContainer"]
+[node name="Option1" type="TextureButton" parent="Options Menu/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
-text = "Option 1"
+texture_normal = ExtResource("7_w11xj")
+texture_pressed = ExtResource("8_776hb")
 
-[node name="Button2" type="Button" parent="Options Menu/VBoxContainer"]
-layout_mode = 2
-text = "Option 2"
-
-[node name="Button3" type="Button" parent="Options Menu/VBoxContainer"]
-layout_mode = 2
-text = "Option 3"
+[node name="Label" type="Label" parent="Options Menu/VBoxContainer/Option1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_n7ldq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Change Skin"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="toggled" from="MarginContainer/Options Button" to="." method="_on_options_button_toggled"]
 [connection signal="button_up" from="MarginContainer/Quit Button" to="." method="_on_quit_button_button_up"]
 [connection signal="button_up" from="PlayControl/Play Button" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="Options Menu/VBoxContainer/Option1" to="." method="_on_option_1_button_up"]

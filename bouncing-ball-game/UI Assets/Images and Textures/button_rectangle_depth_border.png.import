@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckxmbnydwb8bm"
-path="res://.godot/imported/arrow_basic_e.svg-a457a8b21b18cfc339f7949e8210fbfe.ctex"
+uid="uid://dv0x7suon4kyu"
+path="res://.godot/imported/button_rectangle_depth_border.png-ffb59afd16bef94f9f129a03981a9b4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI Assets/Images and Textures/arrow_basic_e.svg"
-dest_files=["res://.godot/imported/arrow_basic_e.svg-a457a8b21b18cfc339f7949e8210fbfe.ctex"]
+source_file="res://UI Assets/Images and Textures/button_rectangle_depth_border.png"
+dest_files=["res://.godot/imported/button_rectangle_depth_border.png-ffb59afd16bef94f9f129a03981a9b4f.ctex"]
 
 [params]
 
@@ -31,7 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
+detect_3d/compress_to=1

@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://epy1t8c182b1"]
+
+[ext_resource type="Script" path="res://ball_selection_radial_menu.gd" id="1_byx4h"]
+[ext_resource type="ArrayMesh" uid="uid://cwhoh78g23aea" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BASEBALL.res" id="2_jdu7d"]
+[ext_resource type="ArrayMesh" uid="uid://cahltmep41boc" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BASKETBALL.res" id="3_8q2w6"]
+[ext_resource type="ArrayMesh" uid="uid://bpxyoh4i02g8x" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BEACHBALL.res" id="4_ynupn"]
+[ext_resource type="ArrayMesh" uid="uid://bc3h3shfcj52n" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BOWLINGBALL.res" id="5_0wtd0"]
+[ext_resource type="ArrayMesh" uid="uid://df5jh6nhvpndj" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/DICE.res" id="6_qypwr"]
+[ext_resource type="ArrayMesh" uid="uid://hkkec281u57u" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/FOOTBALL.res" id="7_agyxa"]
+[ext_resource type="ArrayMesh" uid="uid://x13px0u2uta1" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/GOLFBALL.res" id="8_vwqlu"]
+[ext_resource type="ArrayMesh" uid="uid://0cy3l8mmvenh" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/KETTLEBELL.res" id="9_nq6st"]
+[ext_resource type="ArrayMesh" uid="uid://b4jtrf7mspf65" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SHUTTLECOCK.res" id="10_7b66p"]
+[ext_resource type="ArrayMesh" uid="uid://sv2oi73exskn" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SOCCERBALL.res" id="11_lbgmg"]
+[ext_resource type="ArrayMesh" uid="uid://dmu4f7xhob65o" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/TENNISBALL.res" id="12_agtyk"]
+
+[node name="Ball Selection Radial Menu" type="Node3D"]
+script = ExtResource("1_byx4h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 5, 0, 0)
+mesh = ExtResource("2_jdu7d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.20627, 0, 2.7032)
+mesh = ExtResource("3_8q2w6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 2.07708, 0, 4.54816)
+mesh = ExtResource("4_ynupn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.711574, 0, 4.94911)
+mesh = ExtResource("5_0wtd0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -3.2743, 0, 3.77875)
+mesh = ExtResource("6_qypwr")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -4.79746, 0, 1.40866)
+mesh = ExtResource("7_agyxa")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -4.79746, 0, -1.40866)
+mesh = ExtResource("8_vwqlu")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -3.2743, 0, -3.77875)
+mesh = ExtResource("9_nq6st")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.711574, 0, -4.94911)
+mesh = ExtResource("10_7b66p")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 2.07708, 0, -4.54816)
+mesh = ExtResource("11_lbgmg")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.20627, 0, -2.7032)
+mesh = ExtResource("12_agtyk")

@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://ebtxdhplq6rm"]
+
+[ext_resource type="PackedScene" uid="uid://epy1t8c182b1" path="res://ball_selection_radial_menu.tscn" id="1_cbptw"]
+[ext_resource type="Script" path="res://selection_menu_ui.gd" id="2_3t64q"]
+[ext_resource type="Texture2D" uid="uid://ckxmbnydwb8bm" path="res://UI Assets/Images and Textures/arrow_basic_e.svg" id="3_kp264"]
+[ext_resource type="Texture2D" uid="uid://4b63lljilqco" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Next_Button.png" id="4_465c1"]
+[ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="4_y1k31"]
+[ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="5_a04vx"]
+[ext_resource type="Texture2D" uid="uid://dv0x7suon4kyu" path="res://UI Assets/Images and Textures/button_rectangle_depth_border.png" id="6_v0dan"]
+
+[sub_resource type="Environment" id="Environment_j0h5y"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.332073, 0.478356, 0.481046, 1)
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 3.0
+fog_depth_end = 10.0
+
+[node name="Selection Menu" type="Node3D"]
+
+[node name="Ball Selection Radial Menu" parent="." instance=ExtResource("1_cbptw")]
+transform = Transform3D(0.562451, 0, -0.826831, 0, 1, 0, 0.826831, 0, 0.562451, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.95984)
+
+[node name="Selection Menu UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3t64q")
+
+[node name="TextureButton_R" type="TextureButton" parent="Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -64.0
+offset_right = -41.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture_normal = ExtResource("3_kp264")
+stretch_mode = 0
+
+[node name="TextureButton_L" type="TextureButton" parent="Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = -64.0
+offset_right = 125.0
+offset_bottom = 64.0
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture_normal = ExtResource("3_kp264")
+stretch_mode = 0
+flip_h = true
+
+[node name="BackButton" type="TextureButton" parent="Selection Menu UI"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -254.0
+offset_right = -436.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_465c1")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
+
+[node name="BallNameLable" type="Label" parent="Selection Menu UI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("4_y1k31")
+theme_override_font_sizes/font_size = 100
+text = "Basketball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BallDescriptionLable" type="RichTextLabel" parent="Selection Menu UI/MarginContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_y1k31")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Some Test text"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="BuyButton" type="TextureButton" parent="Selection Menu UI/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("5_a04vx")
+texture_pressed = ExtResource("6_v0dan")
+
+[node name="Label" type="Label" parent="Selection Menu UI/MarginContainer2/BuyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_y1k31")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.967038, 0.23686, 0.0934586, -0.24399, 0.75696, 0.606201, 0.0728402, -0.609023, 0.789801, 11.9094, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j0h5y")
+
+[connection signal="ui_text_update" from="Ball Selection Radial Menu" to="Selection Menu UI" method="_on_ball_selection_radial_menu_ui_text_update"]
+[connection signal="select_ball" from="Selection Menu UI" to="Ball Selection Radial Menu" method="_on_selection_menu_ui_select_ball"]
+[connection signal="update_rot" from="Selection Menu UI" to="Ball Selection Radial Menu" method="_on_selection_menu_ui_update_rot"]
+[connection signal="button_up" from="Selection Menu UI/TextureButton_R" to="Selection Menu UI" method="_on_texture_button_r_button_up"]
+[connection signal="button_up" from="Selection Menu UI/TextureButton_L" to="Selection Menu UI" method="_on_texture_button_l_button_up"]
+[connection signal="button_up" from="Selection Menu UI/BackButton" to="Ball Selection Radial Menu" method="_on_back_button_button_up"]
+[connection signal="button_up" from="Selection Menu UI/MarginContainer2/BuyButton" to="Selection Menu UI" method="_on_buy_button_button_up"]
