@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://bd4dnn7kad7mq"]
+
+[ext_resource type="ArrayMesh" uid="uid://csrsyfj83k1eb" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/KETTLEBELL_ALT.res" id="1_p6w8m"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="2_2s603"]
+
+[resource]
+script = ExtResource("2_2s603")
+ball_name = "KETTLEBELL"
+ball_mesh = ExtResource("1_p6w8m")
+ball_description = "Great for gains, but not very fun."
+does_not_bounce = true
+does_not_roll = true
+does_not_move = true

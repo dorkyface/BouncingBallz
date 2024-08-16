@@ -1,6 +1,8 @@
 
 extends Node3D
 
+@export var ball_data_array: Array[BallData] = []
+
 var ball_desc_dict = {
 	"BASKETBALL": ["Basketball", "...Koby?"],
 	"BASEBALL": ["Baseball", "Hoooommmmerunnn baaaabyyyyy"],
@@ -15,7 +17,7 @@ var ball_desc_dict = {
 	"BEACHBALL": ["Beachball",""]
 }
 
-signal ui_text_update(name : String, description : String)
+signal ui_text_update(ball : BallData)
 
 @export var radius: float = 5.0 :
 	get:
@@ -93,14 +95,37 @@ func _on_selection_menu_ui_update_rot(value: Variant) -> void:
 	if is_tweening: return
 	update_child_index(value)
 	update_rotation(value)
-	ui_text_update.emit(ball_desc_dict[get_mesh_name()][0], ball_desc_dict[get_mesh_name()][1])
+	ui_text_update.emit(get_ball_data())
+	#ui_text_update.emit(ball_desc_dict[get_mesh_name()][0], ball_desc_dict[get_mesh_name()][1])
 
+func get_ball_data() -> BallData:
+	var ball_name = get_mesh_name()
+	for i in ball_data_array.size():
+		if ball_data_array[i].ball_name == ball_name:
+			return ball_data_array[i]
+	
+	print("Could not find ball data")
+	return null
 
 func _on_selection_menu_ui_select_ball() -> void:
-	print("hello")
-	var bawl = get_mesh_name()
-	print(bawl)
-	Manager.BALL = bawl
+	var ball : BallData = get_ball_data()
+	if ball == null : return
+	
+	Manager.BALL_TYPE = ball
+	get_tree().change_scene_to_file("res://test_lvl.tscn")
+	#print("hello")
+	#var bawl = get_mesh_name()
+	#for i in ball_data_array.size():
+		#if ball_data_array[i].ball_name == bawl:
+			#Manager.BALL_TYPE = ball_data_array[i]
+			#print("FOUND AND SElECtED BALL")
+			#get_tree().change_scene_to_file("res://test_lvl.tscn")
+			#return
+	
+	#print("Unable to find ball resource")
+	#print(bawl)
+	#Manager.BALL = bawl
+	#get_tree().change_scene_to_file("res://test_lvl.tscn")
 
 
 func _on_back_button_button_up() -> void:

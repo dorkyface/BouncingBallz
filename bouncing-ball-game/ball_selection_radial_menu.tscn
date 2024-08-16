@@ -8,9 +8,9 @@
 [ext_resource type="ArrayMesh" uid="uid://df5jh6nhvpndj" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/DICE.res" id="6_qypwr"]
 [ext_resource type="ArrayMesh" uid="uid://hkkec281u57u" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/FOOTBALL.res" id="7_agyxa"]
 [ext_resource type="ArrayMesh" uid="uid://x13px0u2uta1" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/GOLFBALL.res" id="8_vwqlu"]
-[ext_resource type="ArrayMesh" uid="uid://0cy3l8mmvenh" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/KETTLEBELL.res" id="9_nq6st"]
 [ext_resource type="ArrayMesh" uid="uid://b4jtrf7mspf65" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SHUTTLECOCK.res" id="10_7b66p"]
 [ext_resource type="ArrayMesh" uid="uid://sv2oi73exskn" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SOCCERBALL.res" id="11_lbgmg"]
+[ext_resource type="ArrayMesh" uid="uid://csrsyfj83k1eb" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/KETTLEBELL_ALT.res" id="12_36euo"]
 [ext_resource type="ArrayMesh" uid="uid://dmu4f7xhob65o" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/TENNISBALL.res" id="12_agtyk"]
 
 [node name="Ball Selection Radial Menu" type="Node3D"]
@@ -44,10 +44,6 @@ mesh = ExtResource("7_agyxa")
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -4.79746, 0, -1.40866)
 mesh = ExtResource("8_vwqlu")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -3.2743, 0, -3.77875)
-mesh = ExtResource("9_nq6st")
-
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.711574, 0, -4.94911)
 mesh = ExtResource("10_7b66p")
@@ -59,3 +55,7 @@ mesh = ExtResource("11_lbgmg")
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.20627, 0, -2.7032)
 mesh = ExtResource("12_agtyk")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 4.20627, 0, -2.7032)
+mesh = ExtResource("12_36euo")

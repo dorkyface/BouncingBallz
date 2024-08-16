@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 		last_touch_position = event.position
 
 		# Rotate the object based on the drag delta
-		var rotation_x = delta.y * sensitivity
+		var _rotation_x = delta.y * sensitivity
 		var rotation_y = delta.x * sensitivity
 		
 		rotate_z(rotation_y)
@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 	rotate_z(rot)
 	
 	if Manager.GO == false: return
+	if Manager.BALL_TYPE.does_not_move: return
 	position.z += delta * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
 	if position.z >= TILE_DISTANCE_LIMIT:
 		position.z = -RESET_DISTANCE_MULTIPLIER * (SEG_COUNT-1)
@@ -68,13 +69,13 @@ func _process(delta: float) -> void:
 # This version reaches 4x speed at 80 points.
 # It cannot go higher than 5 (horizontal asymptote), no matter how large the score.
 # It starts at a multiplier of 1x.
-func speed_calc(n : int):
-	var M = 100
-	var O = 25
-	var C = 5
-	var numerator = -M
-	var denominator = n + O
-	var speed = (numerator / denominator) + C
+func speed_calc(n : int) -> float:
+	var M : float = 100
+	var O : float = 25
+	var C : float = 5
+	var numerator : float = -M
+	var denominator : float = n + O
+	var speed : float = (numerator / denominator) + C
 	return speed
 
 func arrange_children_in_circle():

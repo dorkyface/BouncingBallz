@@ -1,12 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://ebtxdhplq6rm"]
+[gd_scene load_steps=21 format=3 uid="uid://ebtxdhplq6rm"]
 
 [ext_resource type="PackedScene" uid="uid://epy1t8c182b1" path="res://ball_selection_radial_menu.tscn" id="1_cbptw"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="2_2m4jg"]
 [ext_resource type="Script" path="res://selection_menu_ui.gd" id="2_3t64q"]
+[ext_resource type="Resource" uid="uid://rbogvowgru4h" path="res://Ball Data Resources/Baseball.tres" id="3_khcfd"]
 [ext_resource type="Texture2D" uid="uid://ckxmbnydwb8bm" path="res://UI Assets/Images and Textures/arrow_basic_e.svg" id="3_kp264"]
+[ext_resource type="Resource" uid="uid://b4w8h7k7v3u64" path="res://Ball Data Resources/Soccerball.tres" id="3_x1r02"]
 [ext_resource type="Texture2D" uid="uid://4b63lljilqco" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Next_Button.png" id="4_465c1"]
+[ext_resource type="Resource" uid="uid://dkkd0isjbfwwq" path="res://Ball Data Resources/basketball.tres" id="4_oasei"]
 [ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="4_y1k31"]
 [ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="5_a04vx"]
+[ext_resource type="Resource" uid="uid://ddxa1s80qkxbr" path="res://Ball Data Resources/Beachball.tres" id="5_nilsk"]
+[ext_resource type="Resource" uid="uid://b57ratwcfx52s" path="res://Ball Data Resources/Bowlingball.tres" id="6_55l0a"]
 [ext_resource type="Texture2D" uid="uid://dv0x7suon4kyu" path="res://UI Assets/Images and Textures/button_rectangle_depth_border.png" id="6_v0dan"]
+[ext_resource type="Resource" uid="uid://bo1dcuh3qc8me" path="res://Ball Data Resources/Dice.tres" id="7_umbke"]
+[ext_resource type="Resource" uid="uid://cam3llhd3jya7" path="res://Ball Data Resources/Football.tres" id="8_nm35m"]
+[ext_resource type="Resource" uid="uid://cini72ebp20n8" path="res://Ball Data Resources/Golfball.tres" id="9_oroq6"]
+[ext_resource type="Resource" uid="uid://bd4dnn7kad7mq" path="res://Ball Data Resources/Kettlebell.tres" id="10_nl4xu"]
+[ext_resource type="Resource" uid="uid://tywnd8lgjmv5" path="res://Ball Data Resources/Shuttlecock.tres" id="11_30b12"]
+[ext_resource type="Resource" uid="uid://dblscqsaggv1w" path="res://Ball Data Resources/Tennisball.tres" id="13_cnttf"]
 
 [sub_resource type="Environment" id="Environment_j0h5y"]
 background_mode = 1
@@ -24,6 +36,7 @@ fog_depth_end = 10.0
 
 [node name="Ball Selection Radial Menu" parent="." instance=ExtResource("1_cbptw")]
 transform = Transform3D(0.562451, 0, -0.826831, 0, 1, 0, 0.826831, 0, 0.562451, 0, 0, 0)
+ball_data_array = Array[ExtResource("2_2m4jg")]([ExtResource("3_khcfd"), ExtResource("4_oasei"), ExtResource("5_nilsk"), ExtResource("6_55l0a"), ExtResource("7_umbke"), ExtResource("8_nm35m"), ExtResource("9_oroq6"), ExtResource("10_nl4xu"), ExtResource("11_30b12"), ExtResource("3_x1r02"), ExtResource("13_cnttf")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.95984)
@@ -70,6 +83,7 @@ stretch_mode = 0
 flip_h = true
 
 [node name="BackButton" type="TextureButton" parent="Selection Menu UI"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = 8
@@ -83,6 +97,7 @@ offset_right = -436.0
 offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
+disabled = true
 texture_normal = ExtResource("4_465c1")
 ignore_texture_size = true
 stretch_mode = 0

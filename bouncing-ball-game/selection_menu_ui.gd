@@ -17,9 +17,9 @@ func _on_texture_button_l_button_up() -> void:
 	update_menu_rotation(1)
 
 
-func _on_ball_selection_radial_menu_ui_text_update(name: String, description: String) -> void:
-	ball_name_lable.text = name
-	ball_desc_lable.text = "[center]" + description
+func _on_ball_selection_radial_menu_ui_text_update(ball : BallData) -> void:
+	ball_name_lable.text = ball.ball_name
+	ball_desc_lable.text = "[center]" + ball.ball_description
 
 
 func _on_buy_button_button_up() -> void:

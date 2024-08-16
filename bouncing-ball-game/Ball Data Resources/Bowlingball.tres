@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://b57ratwcfx52s"]
+
+[ext_resource type="ArrayMesh" uid="uid://bc3h3shfcj52n" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BOWLINGBALL.res" id="1_v3j37"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="1_y6t8k"]
+
+[resource]
+script = ExtResource("1_y6t8k")
+ball_name = "BOWLINGBALL"
+ball_mesh = ExtResource("1_v3j37")
+ball_description = "Bowling balls don't bounce."
+does_not_bounce = true
+does_not_roll = false
+does_not_move = false

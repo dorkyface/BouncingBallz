@@ -14,7 +14,7 @@ func on_player_death():
 	prevScoreLable.text = str( Manager.PREVIOUS_SCORE )
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	scoreLable.text = str(Manager.STREAK)
 
 

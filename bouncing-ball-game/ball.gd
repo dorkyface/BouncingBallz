@@ -22,11 +22,23 @@ var RESPAWN_HEIGHT = 5
 const HANG_TIME_STREAK_MINIMUM : int = 11
 var last_frame_y : float = 0
 var hang_time : int = 0
+#var ball_data : BallData
 
 func _ready() -> void:
 	rng.randomize()
-	ball_mesh.mesh = find_mesh_resource_by_name("res://Sports Equipment Pack - Andrii Sedykh/Meshes/", Manager.BALL)
-	print(ball_mesh.mesh.resource_name)
+	load_ball_data()
+
+func load_ball_data():
+	var ball_data = Manager.BALL_TYPE
+	if ball_data == null: 
+		print("No ball data loaded at all.")
+		return
+	
+	if ball_data.ball_mesh == null:
+		ball_mesh.mesh = load("res://Ball Data Resources/DefaultCube.tres")
+	else:
+		ball_mesh.mesh = Manager.BALL_TYPE.ball_mesh
+	
 
 func _physics_process(delta: float) -> void:
 	if Manager.GO == false: return
@@ -41,9 +53,13 @@ func _physics_process(delta: float) -> void:
 	# If the ball collides with a tile (although rn it doesn't check specifically for tiles)
 	# then set the Y velocity to the JUMP VELOCITY.
 	var collision = move_and_collide(velocity * delta)
-	if collision:
+	if collision and Manager.BALL_TYPE.does_not_bounce == false:
 		velocity.y = JUMP_VELOCITY
 		call_tween_bounce_animations()
+	elif collision and Manager.BALL_TYPE.does_not_bounce:
+		if Manager.BALL_TYPE.does_not_roll == false:
+			rolling_animation()
+		velocity.y = 0
 	
 	# When the ball falls into the void, respawn and reset streak
 	if position.y <= MINIMUM_HEIGHT_LIMIT:
@@ -57,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	# When this is happening, the ball isn't changing its y position.
 	# So when the ball holds at a given Y position for N frames,
 	# trigger streaking effects.
-	if abs(position.y - last_frame_y) < 0.01:
+	if abs(position.y - last_frame_y) < 0.01 and Manager.BALL_TYPE.does_not_move == false:
 		hang_time += 1
 		if hang_time >= HANG_TIME_STREAK_MINIMUM:
 			#Manager.SCORE += 1
@@ -99,7 +115,9 @@ func call_tween_bounce_animations():
 		2 * PI * s, 
 		TUMBLE_TIME).from(0)
 
-
+func rolling_animation():
+	var ball_mesh_tween : Tween = get_tree().create_tween()
+	ball_mesh_tween.tween_property(ball_mesh, "rotation:x", 360, 10.0).as_relative()
 
 func find_mesh_resource_by_name(resource_path: String, mesh_name: String) -> Mesh:
 	var dir = DirAccess.open(resource_path)

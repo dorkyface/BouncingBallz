@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cor2ulkci48a0"
+path.s3tc="res://.godot/imported/kettle_n_shuttle_Kettlebell_metallicRoughness.png-4096215fce6884f568f877e3e4e21f9d.s3tc.ctex"
+path.etc2="res://.godot/imported/kettle_n_shuttle_Kettlebell_metallicRoughness.png-4096215fce6884f568f877e3e4e21f9d.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "69a17d50741a6fb01a95cc155fc21e3a"
+}
+
+[deps]
+
+source_file="res://Sports Equipment Pack - Andrii Sedykh/kettle_n_shuttle_Kettlebell_metallicRoughness.png"
+dest_files=["res://.godot/imported/kettle_n_shuttle_Kettlebell_metallicRoughness.png-4096215fce6884f568f877e3e4e21f9d.s3tc.ctex", "res://.godot/imported/kettle_n_shuttle_Kettlebell_metallicRoughness.png-4096215fce6884f568f877e3e4e21f9d.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

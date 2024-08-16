@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://rbogvowgru4h"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwhoh78g23aea" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BASEBALL.res" id="1_p4gbh"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="1_pn137"]
+
+[resource]
+script = ExtResource("1_pn137")
+ball_name = "BASEBALL"
+ball_mesh = ExtResource("1_p4gbh")
