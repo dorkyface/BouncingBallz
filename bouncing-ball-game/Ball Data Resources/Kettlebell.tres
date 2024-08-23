@@ -14,3 +14,6 @@ does_not_roll = true
 does_not_move = true
 does_not_respect_gravity = false
 scale_factor = 0.01
+alt_rotation = Vector3(0, 0, 0)
+alt_default_fov = 0.0
+alt_tile_move_speed = 1.0

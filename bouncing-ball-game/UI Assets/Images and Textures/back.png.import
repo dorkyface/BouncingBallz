@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://upgpdy4nf4lo"
-path.s3tc="res://.godot/imported/image_search_1719763705692.jpg-78c74eec4d7d2e67bbc32f7d5ac4e246.s3tc.ctex"
-path.etc2="res://.godot/imported/image_search_1719763705692.jpg-78c74eec4d7d2e67bbc32f7d5ac4e246.etc2.ctex"
+uid="uid://c77fkjjjtxhaa"
+path.s3tc="res://.godot/imported/back.png-8958ab482272d53f628c7841f64069c6.s3tc.ctex"
+path.etc2="res://.godot/imported/back.png-8958ab482272d53f628c7841f64069c6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://image_search_1719763705692.jpg"
-dest_files=["res://.godot/imported/image_search_1719763705692.jpg-78c74eec4d7d2e67bbc32f7d5ac4e246.s3tc.ctex", "res://.godot/imported/image_search_1719763705692.jpg-78c74eec4d7d2e67bbc32f7d5ac4e246.etc2.ctex"]
+source_file="res://UI Assets/Images and Textures/back.png"
+dest_files=["res://.godot/imported/back.png-8958ab482272d53f628c7841f64069c6.s3tc.ctex", "res://.godot/imported/back.png-8958ab482272d53f628c7841f64069c6.etc2.ctex"]
 
 [params]
 
