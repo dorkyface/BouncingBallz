@@ -1,21 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmcejdffuf2xv"]
+[gd_scene load_steps=10 format=3 uid="uid://bmcejdffuf2xv"]
 
 [ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
 [ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
 [ext_resource type="PackedScene" uid="uid://b12s7044cxayt" path="res://tile_segment.tscn" id="2_q3ihe"]
 [ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
 [ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
+[ext_resource type="Shader" path="res://SkyShader1.gdshader" id="6_08bfm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gujip"]
+shader = ExtResource("6_08bfm")
+shader_parameter/sky_color = Color(0.0235294, 0.054902, 0.101961, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.301961, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.603
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_shmqo"]
+sky_material = SubResource("ShaderMaterial_gujip")
 
 [sub_resource type="Environment" id="Environment_uki13"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.0309452, 0.0660385, 0.181845, 1)
+sky = SubResource("Sky_shmqo")
+fog_mode = 1
+fog_light_color = Color(0.804181, 0.823753, 0.854513, 1)
+fog_density = 1.0
+fog_depth_begin = 5.0
+fog_depth_end = 12.0
 
 [node name="TestLvl" type="Node3D"]
 
 [node name="Ball" parent="." instance=ExtResource("2_lrcoa")]
 
 [node name="GameCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.998419, 0, 0.0562049, 0, 1, 0, -0.0562049, 0, 0.998419, 0, 0, 4.49196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.492)
 script = ExtResource("2_bon2a")
 
 [node name="TileSegment" parent="." instance=ExtResource("2_q3ihe")]

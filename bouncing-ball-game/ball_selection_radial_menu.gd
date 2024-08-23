@@ -3,20 +3,6 @@ extends Node3D
 
 @export var ball_data_array: Array[BallData] = []
 
-var ball_desc_dict = {
-	"BASKETBALL": ["Basketball", "...Koby?"],
-	"BASEBALL": ["Baseball", "Hoooommmmerunnn baaaabyyyyy"],
-	"TENNISBALL": ["Tennis Ball",""],
-	"SOCCERBALL": ["Soccerball",""],
-	"SHUTTLECOCK": ["Shuttlecock","Hehehhe.... shuttle. Heh."],
-	"KETTLEBELL": ["Kettlebell",""],
-	"GOLFBALL": ["Golf Ball",""],
-	"FOOTBALL": ["Football",""],
-	"DICE": ["Die",""],
-	"BOWLINGBALL": ["Bowlingball","A bowling bag ball... er, uh... I mean, a bowling ball bag."],
-	"BEACHBALL": ["Beachball",""]
-}
-
 signal ui_text_update(ball : BallData)
 
 @export var radius: float = 5.0 :
@@ -95,7 +81,8 @@ func _on_selection_menu_ui_update_rot(value: Variant) -> void:
 	if is_tweening: return
 	update_child_index(value)
 	update_rotation(value)
-	ui_text_update.emit(get_ball_data())
+	ui_text_update.emit(get_ball_data_alt(child_index))
+	#get_ball_data_alt(child_index)
 	#ui_text_update.emit(ball_desc_dict[get_mesh_name()][0], ball_desc_dict[get_mesh_name()][1])
 
 func get_ball_data() -> BallData:
@@ -107,8 +94,14 @@ func get_ball_data() -> BallData:
 	print("Could not find ball data")
 	return null
 
+func get_ball_data_alt(n: int):
+	var c : BallDataContainer = get_child(n)
+	var data = c.ball_data_file
+	
+	return data
+
 func _on_selection_menu_ui_select_ball() -> void:
-	var ball : BallData = get_ball_data()
+	var ball : BallData = get_ball_data_alt(child_index)
 	if ball == null : return
 	
 	Manager.BALL_TYPE = ball

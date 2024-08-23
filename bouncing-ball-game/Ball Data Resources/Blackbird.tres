@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://v3cuylccwyb2"]
+
+[ext_resource type="ArrayMesh" uid="uid://c721aev3beeq5" path="res://Meshes/lockheed_sr-71_blackbird/SR-71 Blackbird.res" id="1_fbeui"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="1_j2s1x"]
+
+[resource]
+script = ExtResource("1_j2s1x")
+ball_name = "BLACKBIRD"
+ball_mesh = ExtResource("1_fbeui")
+ball_description = "The Lockheed SR-71 Blackbird - an advanced long-range strategic reconnaisance aircraft capable of mach 3 and altitude of 85,000 feet. "
+does_not_streak = true
+does_not_bounce = false
+does_not_roll = false
+does_not_move = false
+does_not_respect_gravity = true
+scale_factor = 0.3
+alt_rotation = Vector3(-90, -90, 0)
+alt_default_fov = 100.0
+alt_tile_move_speed = 10.0

@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://tywnd8lgjmv5"]
 
 [ext_resource type="Script" path="res://BallDataScript.gd" id="1_6i0nk"]
-[ext_resource type="ArrayMesh" uid="uid://b4jtrf7mspf65" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SHUTTLECOCK.res" id="1_th2en"]
+[ext_resource type="ArrayMesh" uid="uid://da14b61cn4r50" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SHUTTLECOCK_FIX.res" id="1_u24k0"]
 
 [resource]
 script = ExtResource("1_6i0nk")
 ball_name = "SHUTTLECOCK"
-ball_mesh = ExtResource("1_th2en")
+ball_mesh = ExtResource("1_u24k0")
 ball_description = "Hehehe... shuttle. Heh."
+does_not_bounce = false
+does_not_roll = false
+does_not_move = false

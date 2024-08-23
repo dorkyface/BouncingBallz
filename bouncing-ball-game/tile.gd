@@ -25,8 +25,9 @@ func _process(delta: float) -> void:
 	# If there IS a collision, make sure that it is the ball 
 	# (and not another tile, for instance)
 	if collide.get_collider().is_in_group("BALL"):
-		Manager.SCORE += 1
-		Manager.STREAK += 1
+		Manager.score_point()
+		#Manager.SCORE += 1
+		#Manager.STREAK += 1
 		#print(Manager.STREAK)
 		animPlayer.play("triggered")
 		triggered = true

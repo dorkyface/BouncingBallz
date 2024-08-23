@@ -6,12 +6,13 @@ extends CharacterBody3D
 @onready var streak_flash_sprite : Sprite3D = $StreakFlashSprite
 @onready var streak_flash_anim : AnimationPlayer = $StreakFlashSprite/StreakFlashAnimationPlayer
 
+@onready var ball_data : BallData = Manager.BALL_TYPE
 @onready var ball_mesh : MeshInstance3D = $MeshInstance3D
 @onready var rng = RandomNumberGenerator.new()
-@onready var base_scale : Vector3 = Vector3.ONE * 0.01
-@onready var SQUASH_SCALE : Vector3 = Vector3(1.25, 0.5, 1.25) * 0.01
+@onready var base_scale : Vector3 = Vector3.ONE
+@onready var SQUASH_SCALE : Vector3 = Vector3(1.25, 0.5, 1.25) * ball_data.scale_factor
 const SQUASH_TIME : float = 0.05
-@onready var STRETCH_SCALE : Vector3 = Vector3(0.75, 1.25, 0.75) * 0.01
+@onready var STRETCH_SCALE : Vector3 = Vector3(0.75, 1.25, 0.75) * ball_data.scale_factor
 const STRETCH_TIME : float = 0.2
 const SQUASH_N_STRETCH_RETURN_TIME = 0.4
 const TUMBLE_TIME = 0.8
@@ -29,15 +30,19 @@ func _ready() -> void:
 	load_ball_data()
 
 func load_ball_data():
-	var ball_data = Manager.BALL_TYPE
+	#var ball_data = Manager.BALL_TYPE
 	if ball_data == null: 
 		print("No ball data loaded at all.")
 		return
 	
 	if ball_data.ball_mesh == null:
 		ball_mesh.mesh = load("res://Ball Data Resources/DefaultCube.tres")
-	else:
-		ball_mesh.mesh = Manager.BALL_TYPE.ball_mesh
+		return
+	
+	ball_mesh.mesh = Manager.BALL_TYPE.ball_mesh
+	base_scale *= ball_data.scale_factor
+	ball_mesh.scale *= base_scale
+	ball_mesh.rotation_degrees = ball_data.alt_rotation
 	
 
 func _physics_process(delta: float) -> void:
@@ -47,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	col_shape.disabled = (position.y >= 1)
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and ball_data.does_not_respect_gravity == false:
 		velocity += get_gravity() * delta
 		
 	# If the ball collides with a tile (although rn it doesn't check specifically for tiles)
@@ -73,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	# When this is happening, the ball isn't changing its y position.
 	# So when the ball holds at a given Y position for N frames,
 	# trigger streaking effects.
-	if abs(position.y - last_frame_y) < 0.01 and Manager.BALL_TYPE.does_not_move == false:
+	if abs(position.y - last_frame_y) < 0.01 and Manager.BALL_TYPE.does_not_streak == false:
 		hang_time += 1
 		if hang_time >= HANG_TIME_STREAK_MINIMUM:
 			#Manager.SCORE += 1

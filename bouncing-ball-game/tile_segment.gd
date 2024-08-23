@@ -1,6 +1,7 @@
 extends Node3D
 
 const SPEED = 2
+@onready var speed_factor = Manager.BALL_TYPE.alt_tile_move_speed
 const TILE_DISTANCE_LIMIT = 4
 const RESET_DISTANCE_MULTIPLIER = 2
 @onready var start_z = position.z
@@ -60,7 +61,7 @@ func _process(delta: float) -> void:
 	
 	if Manager.GO == false: return
 	if Manager.BALL_TYPE.does_not_move: return
-	position.z += delta * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
+	position.z += delta * speed_factor * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
 	if position.z >= TILE_DISTANCE_LIMIT:
 		position.z = -RESET_DISTANCE_MULTIPLIER * (SEG_COUNT-1)
 		on_reset()

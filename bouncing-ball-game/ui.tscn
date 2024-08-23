@@ -109,10 +109,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
 
 [node name="Score Lable" type="Label" parent="MarginContainer"]
 layout_mode = 2
@@ -120,8 +120,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 72
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 150
 text = "0"
 
 [node name="Previous Score Lable" type="Label" parent="MarginContainer"]
@@ -130,8 +130,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 36
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 100
 text = "N/A"
 
 [node name="Error Console" type="Label" parent="MarginContainer"]
@@ -141,42 +141,49 @@ theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
-text = "Version Alpha 7.1"
+text = "Version Alpha 8.0"
 
-[node name="Options Button" type="TextureButton" parent="MarginContainer"]
-process_mode = 3
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-toggle_mode = true
-texture_normal = ExtResource("2_xbpel")
-texture_pressed = ExtResource("3_cy4ku")
+theme_override_constants/separation = 40
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Options Button"]
-process_mode = 3
-modulate = Color(0.295867, 0.295866, 0.295866, 1)
-position = Vector2(32, 30)
-scale = Vector2(0.65625, 0.65625)
-texture = ExtResource("4_l1dbh")
-region_enabled = true
-region_rect = Rect2(320, 1720, 64, 64)
-
-[node name="Quit Button" type="TextureButton" parent="MarginContainer"]
+[node name="Quit Button" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 process_mode = 3
 modulate = Color(0.862745, 0.368627, 0.368627, 1)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("2_xbpel")
 texture_pressed = ExtResource("3_cy4ku")
+stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Quit Button"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Quit Button"]
 modulate = Color(0.408329, 0.408329, 0.408329, 1)
-position = Vector2(33, 30)
-scale = Vector2(0.513889, 0.513889)
+position = Vector2(64, 60)
 texture = ExtResource("4_l1dbh")
 region_enabled = true
-region_rect = Rect2(416, 1216, 72, 72)
+region_rect = Rect2(418, 1220, 64, 64)
+
+[node name="Options Button" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("2_xbpel")
+texture_pressed = ExtResource("3_cy4ku")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Options Button"]
+process_mode = 3
+modulate = Color(0.295867, 0.295866, 0.295866, 1)
+position = Vector2(64, 60)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_l1dbh")
+region_enabled = true
+region_rect = Rect2(320, 1720, 64, 64)
 
 [node name="PlayControl" type="Control" parent="."]
 layout_mode = 1
@@ -195,9 +202,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
+offset_left = -64.0
 offset_top = -64.0
-offset_right = 88.0
+offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -264,7 +271,7 @@ text = "Change Skin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="toggled" from="MarginContainer/Options Button" to="." method="_on_options_button_toggled"]
-[connection signal="button_up" from="MarginContainer/Quit Button" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_button_up"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Options Button" to="." method="_on_options_button_toggled"]
 [connection signal="button_up" from="PlayControl/Play Button" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="Options Menu/VBoxContainer/Option1" to="." method="_on_option_1_button_up"]
