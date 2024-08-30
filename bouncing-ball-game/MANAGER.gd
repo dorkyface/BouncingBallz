@@ -13,11 +13,15 @@ var BALL = "BASKETBALL"
 
 func score_point():
 	STREAK += 1
-	SCORE += 1
+	#SCORE += 1
 	emit_signal("scored_point")
 
 func on_player_death():
-	PREVIOUS_SCORE = max(PREVIOUS_SCORE, STREAK)
+	#PREVIOUS_SCORE = max(PREVIOUS_SCORE, STREAK)
+	PREVIOUS_SCORE += STREAK
 	STREAK = 0
 	emit_signal("player_death")
-	
+
+#TODO Make this function actually save values to system.
+func save():
+	SCORE = STREAK + PREVIOUS_SCORE

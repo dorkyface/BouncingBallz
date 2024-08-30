@@ -35,5 +35,7 @@ func _on_quit_button_button_up() -> void:
 
 func _on_option_1_button_up() -> void:
 	Manager.GO = false
+	Manager.save()
+	#print(Manager.SCORE)
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://selection_menu.tscn")
+	get_tree().change_scene_to_file("res://ball_selection_menu_v2.tscn")

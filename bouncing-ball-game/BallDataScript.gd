@@ -3,6 +3,7 @@ class_name BallData
 
 @export var ball_name : String
 @export var ball_mesh : Mesh = load("res://Ball Data Resources/DefaultCube.tres")
+@export var cost : int = 0
 @export_multiline var ball_description : String = "..."
 @export var does_not_streak = false
 @export var does_not_bounce = false

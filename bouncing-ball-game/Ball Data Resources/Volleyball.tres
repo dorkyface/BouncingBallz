@@ -5,5 +5,15 @@
 
 [resource]
 script = ExtResource("1_rtbg1")
-ball_name = "BEACHBALL"
+ball_name = "VOLLEYBALL"
 ball_mesh = ExtResource("1_hbeju")
+ball_description = "..."
+does_not_streak = false
+does_not_bounce = false
+does_not_roll = false
+does_not_move = false
+does_not_respect_gravity = false
+scale_factor = 0.01
+alt_rotation = Vector3(0, 0, 0)
+alt_default_fov = 0.0
+alt_tile_move_speed = 1.0

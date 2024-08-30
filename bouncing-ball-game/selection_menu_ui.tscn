@@ -1,0 +1,166 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1j3yl82d5qdc"]
+
+[ext_resource type="Script" path="res://selection_menu_ui.gd" id="1_6hoco"]
+[ext_resource type="Texture2D" uid="uid://ckxmbnydwb8bm" path="res://UI Assets/Images and Textures/arrow_basic_e.svg" id="2_6uua3"]
+[ext_resource type="Texture2D" uid="uid://4b63lljilqco" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Next_Button.png" id="3_6gdeb"]
+[ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="4_ncrjv"]
+[ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="5_is3sn"]
+[ext_resource type="Texture2D" uid="uid://dv0x7suon4kyu" path="res://UI Assets/Images and Textures/button_rectangle_depth_border.png" id="6_7d54u"]
+
+[node name="Selection Menu UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6hoco")
+
+[node name="TextureButton_R" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -64.0
+offset_right = -41.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+disabled = true
+texture_normal = ExtResource("2_6uua3")
+stretch_mode = 0
+
+[node name="TextureButton_L" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = -64.0
+offset_right = 125.0
+offset_bottom = 64.0
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+disabled = true
+texture_normal = ExtResource("2_6uua3")
+stretch_mode = 0
+flip_h = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -254.0
+offset_right = -436.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("3_6gdeb")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
+
+[node name="BallNameLable" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("4_ncrjv")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 100
+text = "Basketball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BallDescriptionLable" type="RichTextLabel" parent="MarginContainer"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_ncrjv")
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Cost: ???[p align=center]Some Test text"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="BuyButton" type="TextureButton" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("5_is3sn")
+texture_pressed = ExtResource("6_7d54u")
+
+[node name="Label" type="Label" parent="MarginContainer2/BuyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ncrjv")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+
+[node name="SpendingPointsLable" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("4_ncrjv")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 60
+text = "10000000"
+
+[connection signal="button_up" from="TextureButton_R" to="." method="_on_texture_button_r_button_up"]
+[connection signal="button_up" from="TextureButton_L" to="." method="_on_texture_button_l_button_up"]
+[connection signal="button_up" from="MarginContainer2/BuyButton" to="." method="_on_buy_button_button_up"]

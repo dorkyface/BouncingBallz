@@ -1,0 +1,156 @@
+[gd_scene load_steps=22 format=3 uid="uid://inftue0ncco6"]
+
+[ext_resource type="Script" path="res://ball_selection_menu_v2.gd" id="1_na30m"]
+[ext_resource type="Script" path="res://BallDataScript.gd" id="2_3x2c6"]
+[ext_resource type="ArrayMesh" uid="uid://cahltmep41boc" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BASKETBALL.res" id="2_ql7l3"]
+[ext_resource type="Resource" uid="uid://dkkd0isjbfwwq" path="res://Ball Data Resources/basketball.tres" id="3_nd5dy"]
+[ext_resource type="Resource" uid="uid://rbogvowgru4h" path="res://Ball Data Resources/Baseball.tres" id="4_k1e72"]
+[ext_resource type="Resource" uid="uid://b57ratwcfx52s" path="res://Ball Data Resources/Bowlingball.tres" id="5_25gha"]
+[ext_resource type="Resource" uid="uid://ddxa1s80qkxbr" path="res://Ball Data Resources/Volleyball.tres" id="5_tn56j"]
+[ext_resource type="Resource" uid="uid://cam3llhd3jya7" path="res://Ball Data Resources/Football.tres" id="6_matdi"]
+[ext_resource type="Resource" uid="uid://cini72ebp20n8" path="res://Ball Data Resources/Golfball.tres" id="7_0edcc"]
+[ext_resource type="Resource" uid="uid://b4w8h7k7v3u64" path="res://Ball Data Resources/Soccerball.tres" id="8_gkot4"]
+[ext_resource type="Resource" uid="uid://dblscqsaggv1w" path="res://Ball Data Resources/Tennisball.tres" id="9_7i3of"]
+[ext_resource type="Resource" uid="uid://v3cuylccwyb2" path="res://Ball Data Resources/Blackbird.tres" id="11_jhfxc"]
+[ext_resource type="Resource" uid="uid://bo1dcuh3qc8me" path="res://Ball Data Resources/Dice.tres" id="11_uavl7"]
+[ext_resource type="Resource" uid="uid://tywnd8lgjmv5" path="res://Ball Data Resources/Shuttlecock.tres" id="12_k5vi3"]
+[ext_resource type="Resource" uid="uid://bd4dnn7kad7mq" path="res://Ball Data Resources/Kettlebell.tres" id="13_m4q04"]
+[ext_resource type="PackedScene" uid="uid://d1j3yl82d5qdc" path="res://selection_menu_ui.tscn" id="13_njjjn"]
+
+[sub_resource type="Environment" id="Environment_018s7"]
+background_mode = 1
+
+[sub_resource type="Animation" id="Animation_nwo5i"]
+resource_name = "DUPE2MAIN_R2L"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D_MAIN:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector3(3, 0, -1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D_DUPE:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3, 0, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_a0dh6"]
+resource_name = "MAIN2DUPE_R2L"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D_MAIN:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3, 0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D_DUPE:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector3(3, 0, -1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4plae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D_MAIN:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D_DUPE:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfrnn"]
+_data = {
+"DUPE2MAIN_R2L": SubResource("Animation_nwo5i"),
+"MAIN2DUPE_R2L": SubResource("Animation_a0dh6"),
+"RESET": SubResource("Animation_4plae")
+}
+
+[node name="Ball_Selection_Menu_V2" type="Node3D"]
+script = ExtResource("1_na30m")
+ball_data_array = Array[ExtResource("2_3x2c6")]([ExtResource("3_nd5dy"), ExtResource("5_tn56j"), ExtResource("8_gkot4"), ExtResource("4_k1e72"), ExtResource("6_matdi"), ExtResource("7_0edcc"), ExtResource("9_7i3of"), ExtResource("5_25gha"), ExtResource("11_uavl7"), ExtResource("12_k5vi3"), ExtResource("13_m4q04"), ExtResource("11_jhfxc")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_018s7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.943205, 0.16187, 0.290107, -0.332182, 0.470892, 0.817261, -0.00431951, -0.867213, 0.497919, 6.43498, 0, 0)
+light_color = Color(0.86, 0.673667, 0, 1)
+light_energy = 0.25
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.868666, -1.74283e-09, -0.495398, -0.487681, -0.175813, -0.855135, -0.0870977, 0.984424, -0.152723, 6.42, 0, 0)
+light_color = Color(0.549344, 0.280604, 0.0629791, 1)
+light_energy = 0.5
+sky_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.982291, 0.111398, 0.150651, -0.187147, 0.544661, 0.817509, 0.00901551, -0.831225, 0.555863, 0.368181, 1.73716, 1.61905)
+light_energy = 2.0
+spot_angle = 16.7009
+
+[node name="MeshInstance3D_MAIN" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("2_ql7l3")
+
+[node name="MeshInstance3D_DUPE" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("2_ql7l3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vfrnn")
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.61442)
+
+[node name="Selection Menu UI" parent="." instance=ExtResource("13_njjjn")]
+
+[connection signal="current_ball" from="." to="Selection Menu UI" method="_on_ball_selection_menu_v_2_current_ball"]
+[connection signal="on_swipe_up" from="Selection Menu UI" to="." method="_on_selection_menu_ui_on_swipe_up"]

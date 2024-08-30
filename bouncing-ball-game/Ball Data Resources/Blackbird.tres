@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_j2s1x")
-ball_name = "BLACKBIRD"
+ball_name = "SR-71 Blackbird"
 ball_mesh = ExtResource("1_fbeui")
+cost = 10000
 ball_description = "The Lockheed SR-71 Blackbird - an advanced long-range strategic reconnaisance aircraft capable of mach 3 and altitude of 85,000 feet. "
 does_not_streak = true
 does_not_bounce = false

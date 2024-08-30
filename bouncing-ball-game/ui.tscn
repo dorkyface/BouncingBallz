@@ -141,7 +141,7 @@ theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
-text = "Version Alpha 8.1"
+text = "Version Alpha 9.0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

@@ -7,6 +7,7 @@
 script = ExtResource("2_2s603")
 ball_name = "KETTLEBELL"
 ball_mesh = ExtResource("1_p6w8m")
+cost = 0
 ball_description = "Great for gains, but not very fun."
 does_not_streak = true
 does_not_bounce = true

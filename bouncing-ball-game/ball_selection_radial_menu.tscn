@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://dkkd0isjbfwwq" path="res://Ball Data Resources/basketball.tres" id="6_air78"]
 [ext_resource type="ArrayMesh" uid="uid://df5jh6nhvpndj" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/DICE.res" id="6_qypwr"]
 [ext_resource type="ArrayMesh" uid="uid://hkkec281u57u" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/FOOTBALL.res" id="7_agyxa"]
-[ext_resource type="Resource" uid="uid://ddxa1s80qkxbr" path="res://Ball Data Resources/Beachball.tres" id="8_iylli"]
+[ext_resource type="Resource" uid="uid://ddxa1s80qkxbr" path="res://Ball Data Resources/Volleyball.tres" id="8_iylli"]
 [ext_resource type="ArrayMesh" uid="uid://x13px0u2uta1" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/GOLFBALL.res" id="8_vwqlu"]
 [ext_resource type="ArrayMesh" uid="uid://da14b61cn4r50" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/SHUTTLECOCK_FIX.res" id="9_7wvrl"]
 [ext_resource type="Resource" uid="uid://b57ratwcfx52s" path="res://Ball Data Resources/Bowlingball.tres" id="10_n04pa"]
