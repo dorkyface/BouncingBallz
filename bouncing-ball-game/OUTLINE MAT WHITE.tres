@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7rcv5tdkaxam"]
+
+[ext_resource type="Shader" uid="uid://ctjba0xjbteuj" path="res://Ball Data Resources/outlineshader_black.tres" id="1_uknfq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uknfq")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
