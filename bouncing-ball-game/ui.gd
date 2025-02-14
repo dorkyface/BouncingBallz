@@ -6,16 +6,26 @@ extends Control
 @onready var playAnim = $"PlayControl/Play Animator"
 @onready var optionsMenu = $"Options Menu"
 
+@export var life_point_ui_elements: Array[Node] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Manager.player_death.connect(on_player_death)
+	Manager.scored_point.connect(on_player_score)
 
-func on_player_death():
-	prevScoreLable.text = str( Manager.PREVIOUS_SCORE )
+func on_player_score():
+	pass
+	#print("Player scored")
+
+func on_player_death(lives_remaining):
+	if lives_remaining < 0: return
+	
+	var i = life_point_ui_elements.size() - 1 - lives_remaining
+	var hit_point : life_node = life_point_ui_elements[i].shatter()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	scoreLable.text = str(Manager.STREAK)
+	scoreLable.text = str(Manager.SCORE)
 
 
 func _on_play_button_button_up() -> void:

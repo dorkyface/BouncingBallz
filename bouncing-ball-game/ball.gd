@@ -81,12 +81,14 @@ func _physics_process(delta: float) -> void:
 	if abs(position.y - last_frame_y) < 0.01 and Manager.BALL_TYPE.does_not_streak == false:
 		hang_time += 1
 		if hang_time >= HANG_TIME_STREAK_MINIMUM:
-			#Manager.SCORE += 1
-			Manager.STREAK += 1
+			Manager.SCORE += 1
+			#Manager.STREAK += 1
 			streak_flash_sprite.visible = true
 			streak_flash_anim.play("FLASHING")
 			
 	else:
+		
+		if (hang_time >= HANG_TIME_STREAK_MINIMUM): print("streak ended")
 		hang_time = 0
 		streak_flash_sprite.visible = false
 	last_frame_y = position.y

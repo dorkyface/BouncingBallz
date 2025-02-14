@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6s7xnr4ua56g"]
+
+[ext_resource type="Script" path="res://life_node.gd" id="1_br150"]
+[ext_resource type="Texture2D" uid="uid://bfxmfxlshpj5y" path="res://UI Assets/Images and Textures/Pizza Slice.png" id="2_o57lp"]
+[ext_resource type="Texture2D" uid="uid://cga0kqrvstdie" path="res://UI Assets/Images and Textures/White Circle.png" id="2_udj1b"]
+
+[node name="Life Node" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_br150")
+
+[node name="Outline" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -460.0
+offset_right = 462.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(462, 460)
+texture = ExtResource("2_udj1b")
+
+[node name="Pie Cover" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -460.0
+offset_right = 462.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(460, 462)
+texture = ExtResource("2_udj1b")
+
+[node name="Pie Parent" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slice 1" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 2" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+rotation = 0.785398
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 3" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+rotation = 1.5708
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 4" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+offset_right = -6.10352e-05
+offset_bottom = -6.10352e-05
+rotation = 2.35619
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 5" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+rotation = 3.14159
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 6" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+offset_bottom = -6.10352e-05
+rotation = 3.92699
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 7" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+rotation = 4.71239
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")
+
+[node name="Slice 8" type="TextureRect" parent="Pie Parent"]
+offset_left = -459.0
+offset_top = -324.0
+offset_bottom = -6.10352e-05
+rotation = 5.49779
+pivot_offset = Vector2(459, 324)
+texture = ExtResource("2_o57lp")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj2b7ate03lh2"]
+[gd_scene load_steps=13 format=3 uid="uid://cj2b7ate03lh2"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_7ayhc"]
 [ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="2_n7ldq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://t31026jxomn4" path="res://UI Assets/Images and Textures/AM72 Icons/Icons_2/Play_Button.png" id="6_p1f5t"]
 [ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="7_w11xj"]
 [ext_resource type="Texture2D" uid="uid://dv0x7suon4kyu" path="res://UI Assets/Images and Textures/button_rectangle_depth_border.png" id="8_776hb"]
+[ext_resource type="PackedScene" uid="uid://b6s7xnr4ua56g" path="res://life_node.tscn" id="9_vr05i"]
 
 [sub_resource type="Animation" id="Animation_ugi45"]
 length = 0.001
@@ -93,7 +94,7 @@ _data = {
 "clicked_play": SubResource("Animation_5har1")
 }
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" node_paths=PackedStringArray("life_point_ui_elements")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ayhc")
+life_point_ui_elements = [NodePath("MarginContainer/BoxContainer/Control/Life Node"), NodePath("MarginContainer/BoxContainer/Control2/Life Node"), NodePath("MarginContainer/BoxContainer/Control3/Life Node")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -125,6 +127,7 @@ theme_override_font_sizes/font_size = 150
 text = "0"
 
 [node name="Previous Score Lable" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -141,13 +144,62 @@ theme = ExtResource("2_n7ldq")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
-text = "Version Alpha 10.0"
+text = "Version Alpha 11.0"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Control" type="Control" parent="MarginContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Life Node" parent="MarginContainer/BoxContainer/Control" instance=ExtResource("9_vr05i")]
+z_index = 2
+layout_mode = 2
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 0.0
+scale = Vector2(0.063, 0.063)
+
+[node name="SPACING NODE3" type="Control" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Life Node" parent="MarginContainer/BoxContainer/Control2" instance=ExtResource("9_vr05i")]
+z_index = 1
+layout_mode = 2
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 0.0
+scale = Vector2(0.063, 0.063)
+
+[node name="SPACING NODE2" type="Control" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Life Node" parent="MarginContainer/BoxContainer/Control3" instance=ExtResource("9_vr05i")]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 0.0
+scale = Vector2(0.063, 0.063)
+
+[node name="SPACING NODE" type="Control" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Quit Button" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="Quit Button" type="TextureButton" parent="MarginContainer/BoxContainer/VBoxContainer"]
 process_mode = 3
 modulate = Color(0.862745, 0.368627, 0.368627, 1)
 custom_minimum_size = Vector2(128, 128)
@@ -158,14 +210,14 @@ texture_normal = ExtResource("2_xbpel")
 texture_pressed = ExtResource("3_cy4ku")
 stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Quit Button"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer/VBoxContainer/Quit Button"]
 modulate = Color(0.408329, 0.408329, 0.408329, 1)
 position = Vector2(64, 60)
 texture = ExtResource("4_l1dbh")
 region_enabled = true
 region_rect = Rect2(418, 1220, 64, 64)
 
-[node name="Options Button" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="Options Button" type="TextureButton" parent="MarginContainer/BoxContainer/VBoxContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -176,7 +228,7 @@ texture_normal = ExtResource("2_xbpel")
 texture_pressed = ExtResource("3_cy4ku")
 stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Options Button"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer/VBoxContainer/Options Button"]
 process_mode = 3
 modulate = Color(0.295867, 0.295866, 0.295866, 1)
 position = Vector2(64, 60)
@@ -271,7 +323,7 @@ text = "Change Skin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_button_up"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/Options Button" to="." method="_on_options_button_toggled"]
+[connection signal="button_up" from="MarginContainer/BoxContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_button_up"]
+[connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/Options Button" to="." method="_on_options_button_toggled"]
 [connection signal="button_up" from="PlayControl/Play Button" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="Options Menu/VBoxContainer/Option1" to="." method="_on_option_1_button_up"]

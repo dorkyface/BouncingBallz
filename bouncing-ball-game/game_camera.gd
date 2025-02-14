@@ -25,7 +25,7 @@ func update_fov():
 	var new_fov = clamp(DEFAULT_FOV + Manager.STREAK - 5, DEFAULT_FOV, DEFAULT_FOV + 30)
 	twee.tween_property(self, "fov", new_fov, 0.5)
 
-func reset_fov():
+func reset_fov(_lives):
 	var twee : Tween = get_tree().create_tween()
 	twee.set_ease(Tween.EASE_OUT)
 	twee.set_trans(Tween.TRANS_ELASTIC)
