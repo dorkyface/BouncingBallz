@@ -1,0 +1,373 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdj7kntq60ujf"]
+
+[ext_resource type="Shader" path="res://Blur.gdshader" id="1_mx8aa"]
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_no2e1"]
+[ext_resource type="Texture2D" uid="uid://bjcwa3nwk220p" path="res://UI Assets/Images and Textures/button_rectangle_depth_gradient.png" id="2_by6mf"]
+[ext_resource type="Texture2D" uid="uid://bif4kfev017f7" path="res://UI Assets/Images and Textures/White Rounded Square PNG.png" id="5_7a8ay"]
+[ext_resource type="Theme" uid="uid://crskldf1ng7xs" path="res://UI Assets/SexyFontTheme.tres" id="6_wgj35"]
+[ext_resource type="Texture2D" uid="uid://bkdgxfusvfj45" path="res://UI Assets/Kennys UI Assets/audioOn.png" id="7_crbmc"]
+[ext_resource type="Texture2D" uid="uid://byfgm6xlt6a3r" path="res://UI Assets/Kennys UI Assets/target.png" id="8_qlk7v"]
+[ext_resource type="Texture2D" uid="uid://bu2dxyjwy11kk" path="res://UI Assets/Kennys UI Assets/musicOn.png" id="9_8hgt5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ot72"]
+shader = ExtResource("1_mx8aa")
+shader_parameter/amount = 1.0
+
+[node name="Game Over Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_no2e1")
+
+[node name="BackGround Blur" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_3ot72")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_by6mf")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 330
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 400
+
+[node name="Menu Outline" type="NinePatchRect" parent="MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+region_rect = Rect2(0, 0, 320, 320)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Menu Interior" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+self_modulate = Color(0.737255, 0.741176, 0.752941, 1)
+light_mask = 262145
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Score Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 64
+theme_override_font_sizes/font_size = 250
+text = "000"
+
+[node name="High Score Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 50
+text = "High Score: 000"
+
+[node name="V Spacer" type="VSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Menu Row" type="HBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Volume Icon Texture Rect" type="TextureRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row/Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("7_crbmc")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Master Volume Slider" type="HSlider" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row/Control2"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_icons/grabber = ExtResource("8_qlk7v")
+theme_override_icons/grabber_highlight = ExtResource("8_qlk7v")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Master Volume Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 32
+text = "20%"
+
+[node name="V Spacer5" type="VSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Menu Row2" type="HBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Music Icon Texture Rect" type="TextureRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2/Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("9_8hgt5")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Music Volume Slider" type="HSlider" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2/Control2"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_icons/grabber = ExtResource("8_qlk7v")
+theme_override_icons/grabber_highlight = ExtResource("8_qlk7v")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Music Volume Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 32
+text = "20%"
+
+[node name="V Spacer2" type="VSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="Button Margin Container" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 330
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 330
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="Balls Button" type="Button" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 50
+text = "Ballz"
+flat = true
+
+[node name="V Spacer3" type="VSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Button Margin Container2" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container2"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="Replay Button" type="Button" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container2"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 120
+text = "Play Again?"
+flat = true
+expand_icon = true
+
+[node name="V Spacer4" type="VSeparator" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button Margin Container3" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container3"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(256, 170)
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="Main Menu Button" type="Button" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container3"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+flat = true
+
+[node name="Button Margin Container4" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container4"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(256, 170)
+layout_mode = 2
+texture = ExtResource("5_7a8ay")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="Quit Button" type="Button" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container4"]
+layout_mode = 2
+theme = ExtResource("6_wgj35")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 60
+text = "Quit
+"
+flat = true
+
+[connection signal="value_changed" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row/Control2/Master Volume Slider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Menu Row2/Control2/Music Volume Slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="button_up" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container/Balls Button" to="." method="_on_balls_button_button_up"]
+[connection signal="button_up" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/Button Margin Container2/Replay Button" to="." method="_on_replay_button_button_up"]
+[connection signal="button_up" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container3/Main Menu Button" to="." method="_on_main_menu_button_button_up"]
+[connection signal="button_up" from="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button Margin Container4/Quit Button" to="." method="_on_quit_button_button_up"]

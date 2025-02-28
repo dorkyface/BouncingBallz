@@ -68,8 +68,9 @@ func _physics_process(delta: float) -> void:
 	
 	# When the ball falls into the void, respawn and reset streak
 	if position.y <= MINIMUM_HEIGHT_LIMIT:
-		position.y = RESPAWN_HEIGHT
-		velocity.y = 0
+		if Manager.LIVES > 1: 
+			position.y = RESPAWN_HEIGHT
+			velocity.y = 0
 		Manager.on_player_death()
 		#Manager.PREVIOUS_SCORE = Manager.STREAK
 		#Manager.STREAK = 0

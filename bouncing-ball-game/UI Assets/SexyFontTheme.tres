@@ -1,7 +1,19 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://crskldf1ng7xs"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://crskldf1ng7xs"]
 
 [ext_resource type="FontFile" uid="uid://brn8ydjayr2li" path="res://UI Assets/Fonts/Square-Black_openikino.ttf" id="1_gkpoj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6b8d"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igiil"]
 
 [resource]
 default_font = ExtResource("1_gkpoj")
 default_font_size = 0
+Button/styles/normal = SubResource("StyleBoxFlat_q6b8d")
+Button/styles/pressed = SubResource("StyleBoxFlat_igiil")

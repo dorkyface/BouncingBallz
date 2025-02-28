@@ -1,7 +1,11 @@
 extends Control
 class_name life_node
 
-const shatter_time = 5.0
+@onready var outline: TextureRect = $Outline
+@onready var pie_cover: TextureRect = $"Pie Cover"
+
+const shatter_time = 10.0
+const SHATTER_DISTANCE_FACTOR = 50000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,9 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		shatter()
-		
+	pass
+	#if Input.is_action_just_pressed("ui_accept"):
+		#shatter()
 
 func shatter():
 		hide_excess_textures()
@@ -24,9 +28,9 @@ func shatter():
 			t.set_parallel(true)
 			t.set_ease(Tween.EASE_OUT)
 			t.set_trans(Tween.TRANS_EXPO)
-			t.tween_property($"Pie Parent".get_child(i), "position", dir * 20000, shatter_time).as_relative()
+			t.tween_property($"Pie Parent".get_child(i), "position", dir * SHATTER_DISTANCE_FACTOR, shatter_time).as_relative()
 			t.tween_property($"Pie Parent".get_child(i), "self_modulate", Color.TRANSPARENT, shatter_time)
 
 func hide_excess_textures():
-	$"Pie Cover".visible = false
-	$Outline.visible = false
+	pie_cover.visible = false
+	outline.visible = false

@@ -17,6 +17,7 @@ var toonball_data_string = "res://Ball Data Resources/Cartoon.tres"
 var BALL = "BASKETBALL"
 @onready var BALL_TYPE : BallData = load(toonball_data_string)
 
+
 func score_point():
 	SCORE += 1
 	
@@ -25,7 +26,15 @@ func score_point():
 func on_player_death():
 	LIVES -= 1
 	player_death.emit(LIVES)
+	if LIVES <= 0: 
+		pass
+		#print("Player is dead")
 
+
+func reset_game():
+	Manager.GO = false
+	LIVES = STARTING_LIVES
+	SCORE = 0
 
 #TODO Make this function actually save values to system.
 func save():

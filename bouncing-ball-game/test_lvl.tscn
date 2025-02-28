@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmcejdffuf2xv"]
+[gd_scene load_steps=12 format=3 uid="uid://bmcejdffuf2xv"]
 
 [ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
 [ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
 [ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
 [ext_resource type="Texture2D" uid="uid://c77fkjjjtxhaa" path="res://UI Assets/Images and Textures/back.png" id="7_boedq"]
+[ext_resource type="PackedScene" uid="uid://bk6tu5nisc8qs" path="res://game_over_menu_v_2.tscn" id="7_l7pje"]
 
 [sub_resource type="Environment" id="Environment_uki13"]
 background_mode = 1
@@ -137,3 +138,7 @@ libraries = {
 "": SubResource("AnimationLibrary_spd1l")
 }
 autoplay = "BackgroundBlip"
+
+[node name="game_over_menu_v2" parent="." instance=ExtResource("7_l7pje")]
+process_mode = 3
+visible = false
