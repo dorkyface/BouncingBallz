@@ -7,6 +7,8 @@ class_name life_node
 const shatter_time = 10.0
 const SHATTER_DISTANCE_FACTOR = 50000
 
+@onready var shatter_sfx_player: AudioStreamPlayer3D = $ShatterSFXPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -20,7 +22,8 @@ func _process(delta: float) -> void:
 
 func shatter():
 		hide_excess_textures()
-	
+		shatter_sfx_player.play()
+		
 		for i in $"Pie Parent".get_children().size():
 			var dir = Vector2.LEFT.rotated(deg_to_rad(-22.5 + 45.0 * (i + 1)))
 			

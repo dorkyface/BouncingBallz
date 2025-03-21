@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6s7xnr4ua56g"]
+[gd_scene load_steps=5 format=3 uid="uid://b6s7xnr4ua56g"]
 
 [ext_resource type="Script" path="res://life_node.gd" id="1_br150"]
 [ext_resource type="Texture2D" uid="uid://bfxmfxlshpj5y" path="res://UI Assets/Images and Textures/Pizza Slice.png" id="2_o57lp"]
 [ext_resource type="Texture2D" uid="uid://cga0kqrvstdie" path="res://UI Assets/Images and Textures/White Circle.png" id="2_udj1b"]
+[ext_resource type="AudioStream" uid="uid://diqnnsu17sy7s" path="res://SFX/EDIT_mickfire__glass-breaking-loud-glass-shattering-sfx.wav" id="4_fx8oh"]
 
 [node name="Life Node" type="Control"]
 layout_mode = 3
@@ -254,3 +255,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(460, 462)
 texture = ExtResource("2_udj1b")
+
+[node name="ShatterSFXPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_fx8oh")

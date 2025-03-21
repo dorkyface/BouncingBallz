@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://06tq7n4ou2da"]
+[gd_scene load_steps=16 format=3 uid="uid://06tq7n4ou2da"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_3cpv0"]
 [ext_resource type="ArrayMesh" uid="uid://bc3h3shfcj52n" path="res://Sports Equipment Pack - Andrii Sedykh/Meshes/BOWLINGBALL.res" id="2_i5vt4"]
 [ext_resource type="Material" uid="uid://7rcv5tdkaxam" path="res://OUTLINE MAT WHITE.tres" id="3_3w053"]
 [ext_resource type="Texture2D" uid="uid://cs1lv7ema0e7q" path="res://UI Assets/Images and Textures/muzzleFlash0_leftshoe18.png" id="3_caltr"]
+[ext_resource type="AudioStream" uid="uid://ic1ybojnv6ar" path="res://SFX/Dodgeball sound effect.wav" id="5_jjcnt"]
+[ext_resource type="AudioStream" uid="uid://bn0rve1urcr8r" path="res://SFX/GAME_MENU_SCORE_SFX000657.wav" id="6_1vcqk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vkscq"]
 radius = 0.4
@@ -101,6 +103,13 @@ _data = {
 "RESET": SubResource("Animation_f80cj")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q0uae"]
+playback_mode = 1
+random_pitch = 1.1
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("5_jjcnt")
+
 [node name="Ball" type="CharacterBody3D" groups=["BALL"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_mask = 3
@@ -143,3 +152,12 @@ region_rect = Rect2(0, 0, 512, 128)
 libraries = {
 "": SubResource("AnimationLibrary_ve54v")
 }
+
+[node name="BounceEffectAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_q0uae")
+attenuation_model = 3
+
+[node name="StreakFXPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 0, 0, 0)
+stream = ExtResource("6_1vcqk")
+attenuation_model = 3

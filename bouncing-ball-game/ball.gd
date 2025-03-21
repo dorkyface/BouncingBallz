@@ -25,6 +25,10 @@ var last_frame_y : float = 0
 var hang_time : int = 0
 #var ball_data : BallData
 
+@onready var audioPlayer : AudioStreamPlayer3D = $BounceEffectAudioPlayer
+@onready var streak_fx_player: AudioStreamPlayer3D = $StreakFXPlayer
+
+
 func _ready() -> void:
 	rng.randomize()
 	load_ball_data()
@@ -61,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	if collision and Manager.BALL_TYPE.does_not_bounce == false:
 		velocity.y = JUMP_VELOCITY
 		call_tween_bounce_animations()
+		audioPlayer.play()
 	elif collision and Manager.BALL_TYPE.does_not_bounce:
 		if Manager.BALL_TYPE.does_not_roll == false:
 			rolling_animation()
@@ -89,9 +94,12 @@ func _physics_process(delta: float) -> void:
 			
 	else:
 		
-		if (hang_time >= HANG_TIME_STREAK_MINIMUM): print("streak ended")
+		if (hang_time >= HANG_TIME_STREAK_MINIMUM): 
+			print("streak ended")
+			streak_fx_player.play()
 		hang_time = 0
 		streak_flash_sprite.visible = false
+		
 	last_frame_y = position.y
 
 func call_tween_bounce_animations():

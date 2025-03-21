@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hfpx5w03qfo1"
+path="res://.godot/imported/GAME_MENU_SCORE_SFX000149 Powerup.wav-c22365228a0301f69f2b90417597755f.sample"
+
+[deps]
+
+source_file="res://SFX/GAME_MENU_SCORE_SFX000149 Powerup.wav"
+dest_files=["res://.godot/imported/GAME_MENU_SCORE_SFX000149 Powerup.wav-c22365228a0301f69f2b90417597755f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

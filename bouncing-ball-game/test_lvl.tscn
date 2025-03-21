@@ -1,12 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmcejdffuf2xv"]
+[gd_scene load_steps=15 format=3 uid="uid://bmcejdffuf2xv"]
 
+[ext_resource type="AudioStream" uid="uid://ousx6pjdrefl" path="res://SFX/368743__frankum__electronic-pop-sweet-guitar.mp3" id="1_rlkcq"]
 [ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
 [ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
 [ext_resource type="PackedScene" uid="uid://b12s7044cxayt" path="res://tile_segment.tscn" id="2_q3ihe"]
 [ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
+[ext_resource type="Script" path="res://music_manager.gd" id="3_rblet"]
 [ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
 [ext_resource type="Texture2D" uid="uid://c77fkjjjtxhaa" path="res://UI Assets/Images and Textures/back.png" id="7_boedq"]
 [ext_resource type="PackedScene" uid="uid://bk6tu5nisc8qs" path="res://game_over_menu_v_2.tscn" id="7_l7pje"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_m1rq4"]
+stream_count = 1
+stream_0/stream = ExtResource("1_rlkcq")
+stream_0/volume = 0.0
 
 [sub_resource type="Environment" id="Environment_uki13"]
 background_mode = 1
@@ -81,6 +88,10 @@ _data = {
 
 [node name="TestLvl" type="Node3D"]
 
+[node name="MusicManager" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_m1rq4")
+script = ExtResource("3_rblet")
+
 [node name="Ball" parent="." instance=ExtResource("2_lrcoa")]
 
 [node name="GameCamera" type="Camera3D" parent="."]
@@ -141,4 +152,3 @@ autoplay = "BackgroundBlip"
 
 [node name="game_over_menu_v2" parent="." instance=ExtResource("7_l7pje")]
 process_mode = 3
-visible = false

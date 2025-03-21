@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b741p357a48v1"
+path="res://.godot/imported/GAME_MENU_SCORE_SFX000678 New High Score.wav-49c192f0a709bcfd3865a589ffe9cbac.sample"
+
+[deps]
+
+source_file="res://SFX/GAME_MENU_SCORE_SFX000678 New High Score.wav"
+dest_files=["res://.godot/imported/GAME_MENU_SCORE_SFX000678 New High Score.wav-49c192f0a709bcfd3865a589ffe9cbac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

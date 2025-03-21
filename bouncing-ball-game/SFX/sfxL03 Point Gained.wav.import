@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgn0rwhlgea8u"
+path="res://.godot/imported/sfxL03 Point Gained.wav-7b74244325d194d7295d96898ec2042e.sample"
+
+[deps]
+
+source_file="res://SFX/sfxL03 Point Gained.wav"
+dest_files=["res://.godot/imported/sfxL03 Point Gained.wav-7b74244325d194d7295d96898ec2042e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
