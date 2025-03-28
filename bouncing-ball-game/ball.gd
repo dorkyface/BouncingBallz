@@ -23,7 +23,7 @@ var RESPAWN_HEIGHT = 5
 const HANG_TIME_STREAK_MINIMUM : int = 11
 var last_frame_y : float = 0
 var hang_time : int = 0
-#var ball_data : BallData
+var testtime : float = 0
 
 @onready var audioPlayer : AudioStreamPlayer3D = $BounceEffectAudioPlayer
 @onready var streak_fx_player: AudioStreamPlayer3D = $StreakFXPlayer
@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	#When the ball is respawned in the air, it shouldn't collide with the tiles at the top of the ring.
 	col_shape.disabled = (position.y >= 1)
 	
+	testtime += delta
 	# Add the gravity.
 	if not is_on_floor() and ball_data.does_not_respect_gravity == false:
 		velocity += get_gravity() * delta
@@ -64,6 +65,8 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision and Manager.BALL_TYPE.does_not_bounce == false:
 		velocity.y = JUMP_VELOCITY
+		#print(testtime)
+		#testtime = 0
 		call_tween_bounce_animations()
 		audioPlayer.play()
 	elif collision and Manager.BALL_TYPE.does_not_bounce:
@@ -97,6 +100,7 @@ func _physics_process(delta: float) -> void:
 		if (hang_time >= HANG_TIME_STREAK_MINIMUM): 
 			print("streak ended")
 			streak_fx_player.play()
+			Manager.apply_powerup(1, 3)
 		hang_time = 0
 		streak_flash_sprite.visible = false
 		

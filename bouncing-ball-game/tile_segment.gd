@@ -1,9 +1,9 @@
 extends Node3D
 
-const SPEED = 2
+#var SPEED = 2
 @onready var speed_factor = Manager.BALL_TYPE.alt_tile_move_speed
-const TILE_DISTANCE_LIMIT = 4
-const RESET_DISTANCE_MULTIPLIER = 2
+const TILE_DISTANCE_LIMIT = 2
+const RESET_DISTANCE_MULTIPLIER = 1
 @onready var start_z = position.z
 @onready var SEG_COUNT = get_tree().get_node_count_in_group("SEGMENT") - 1
 @export var radius: float = 2.0
@@ -47,6 +47,7 @@ func on_reset():
 	disable_children_randomly(false)
 	randomize()
 	disable_children_randomly(true)
+	set_children_as_powerups()
 	
 	for i in get_child_count():
 		get_child(i).triggered = false
@@ -61,7 +62,8 @@ func _process(delta: float) -> void:
 	
 	if Manager.GO == false: return
 	if Manager.BALL_TYPE.does_not_move: return
-	position.z += delta * speed_factor * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
+	position.z += delta * 0.9167 * (Manager.current_speed + Manager.bonus_speed)
+	#position.z += delta * speed_factor * (speed_calc(Manager.SCORE) + speed_calc(Manager.STREAK * 0.5))
 	if position.z >= TILE_DISTANCE_LIMIT:
 		position.z = -RESET_DISTANCE_MULTIPLIER * (SEG_COUNT-1)
 		on_reset()
@@ -70,14 +72,14 @@ func _process(delta: float) -> void:
 # This version reaches 4x speed at 80 points.
 # It cannot go higher than 5 (horizontal asymptote), no matter how large the score.
 # It starts at a multiplier of 1x.
-func speed_calc(n : int) -> float:
-	var M : float = 100
-	var O : float = 25
-	var C : float = 5
-	var numerator : float = -M
-	var denominator : float = n + O
-	var speed : float = (numerator / denominator) + C
-	return speed
+#func speed_calc(n : int) -> float:
+	#var M : float = 100
+	#var O : float = 25
+	#var C : float = 5
+	#var numerator : float = -M
+	#var denominator : float = n + O
+	#var speed : float = (numerator / denominator) + C
+	#return speed
 
 func arrange_children_in_circle():
 	var num_children = get_child_count()
@@ -123,3 +125,14 @@ func disable_collisions(node: Node, disable: bool):
 			child.disabled = disable
 		elif child.has_method("get_children"):
 			disable_collisions(child, disable)
+
+func set_children_as_powerups():
+	for tile in get_children():
+		var rand = RandomNumberGenerator.new()
+		rand.randomize()
+		var lol = randi_range(0, 100)
+		if lol <= 1:
+			tile.powerup()
+		else:
+			tile.powerdown()
+		#print(lol)

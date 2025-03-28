@@ -12,6 +12,7 @@ extends Control
 func _ready() -> void:
 	Manager.player_death.connect(on_player_death)
 	Manager.scored_point.connect(on_player_score)
+	Manager.score_up.connect(on_score_powerup)
 
 func on_player_score():
 	pass
@@ -49,3 +50,9 @@ func _on_option_1_button_up() -> void:
 	#print(Manager.SCORE)
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://ball_selection_menu_v2.tscn")
+
+func on_score_powerup(rarity, magnitude):
+	var t = get_tree().create_tween()
+	var s = scoreLable.scale
+	t.tween_property(scoreLable, "scale", Vector2.ONE * (4 - rarity), 0.25).as_relative()
+	t.tween_property(scoreLable, "scale", s, 0.25)

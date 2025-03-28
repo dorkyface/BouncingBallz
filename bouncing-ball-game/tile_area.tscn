@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dixaclpnj5c1d"]
+[gd_scene load_steps=9 format=3 uid="uid://dixaclpnj5c1d"]
 
 [ext_resource type="Script" path="res://tile_area.gd" id="1_j4hjh"]
+[ext_resource type="PackedScene" uid="uid://drpohw70tecjs" path="res://powerup_indicator.tscn" id="2_u0gn7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ebv5u"]
-size = Vector3(1, 0.2, 2)
+size = Vector3(1, 0.2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mixo8"]
 resource_local_to_scene = true
@@ -13,7 +14,7 @@ shading_mode = 0
 [sub_resource type="PlaneMesh" id="PlaneMesh_xeudo"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_mixo8")
-size = Vector2(1, 2)
+size = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_wbfh6"]
 length = 0.001
@@ -120,5 +121,9 @@ shape = SubResource("BoxShape3D_ebv5u")
 libraries = {
 "": SubResource("AnimationLibrary_farn8")
 }
+
+[node name="Powerup Indicator" parent="." instance=ExtResource("2_u0gn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204576, 0)
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

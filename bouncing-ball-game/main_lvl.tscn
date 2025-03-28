@@ -1,0 +1,172 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmcejdffuf2xv"]
+
+[ext_resource type="AudioStream" uid="uid://ousx6pjdrefl" path="res://SFX/368743__frankum__electronic-pop-sweet-guitar.mp3" id="1_rlkcq"]
+[ext_resource type="Script" path="res://game_camera.gd" id="2_bon2a"]
+[ext_resource type="PackedScene" uid="uid://06tq7n4ou2da" path="res://ball.tscn" id="2_lrcoa"]
+[ext_resource type="PackedScene" uid="uid://b12s7044cxayt" path="res://tile_segment.tscn" id="2_q3ihe"]
+[ext_resource type="PackedScene" uid="uid://c4dkv6vm43j5v" path="res://shadow.tscn" id="3_o81jc"]
+[ext_resource type="Script" path="res://music_manager.gd" id="3_rblet"]
+[ext_resource type="PackedScene" uid="uid://cj2b7ate03lh2" path="res://ui.tscn" id="4_20506"]
+[ext_resource type="Texture2D" uid="uid://c77fkjjjtxhaa" path="res://UI Assets/Images and Textures/back.png" id="7_boedq"]
+[ext_resource type="PackedScene" uid="uid://bk6tu5nisc8qs" path="res://game_over_menu_v_2.tscn" id="7_l7pje"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_m1rq4"]
+stream_count = 1
+stream_0/stream = ExtResource("1_rlkcq")
+stream_0/volume = 0.0
+
+[sub_resource type="Environment" id="Environment_uki13"]
+background_mode = 1
+background_color = Color(0.0309452, 0.0660385, 0.181845, 1)
+fog_mode = 1
+fog_light_color = Color(0.804181, 0.823753, 0.854513, 1)
+fog_density = 1.0
+fog_depth_begin = 5.0
+fog_depth_end = 12.0
+
+[sub_resource type="Animation" id="Animation_xat1i"]
+resource_name = "BackgroundBlip"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_adt42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spd1l"]
+_data = {
+"BackgroundBlip": SubResource("Animation_xat1i"),
+"RESET": SubResource("Animation_adt42")
+}
+
+[node name="MainLvl" type="Node3D"]
+
+[node name="MusicManager" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_m1rq4")
+script = ExtResource("3_rblet")
+
+[node name="Ball" parent="." instance=ExtResource("2_lrcoa")]
+
+[node name="GameCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.492)
+script = ExtResource("2_bon2a")
+
+[node name="TileSegment" parent="." instance=ExtResource("2_q3ihe")]
+
+[node name="TileSegment2" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="TileSegment3" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="TileSegment4" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="TileSegment5" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="TileSegment6" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="TileSegment7" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="TileSegment8" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="TileSegment9" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="TileSegment10" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="TileSegment11" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="TileSegment12" parent="." instance=ExtResource("2_q3ihe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="UI" parent="." instance=ExtResource("4_20506")]
+z_index = -1
+
+[node name="Shadow" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("3_o81jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(1, 1, 1)
+modulate = Color(0, 0, 0, 0.545098)
+upper_fade = 0.00197085
+lower_fade = 0.00408071
+cull_mask = 1048570
+ball = NodePath("../Ball")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uki13")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.916258, 0.0614502, 0.395848, -0.400589, 0.140554, 0.905413, 0, -0.988164, 0.1534, 6.04519, 134.239, 0)
+light_cull_mask = 4294967292
+
+[node name="Background Manager" type="Node3D" parent="."]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 0, 0, -300)
+
+[node name="Background4" type="Sprite3D" parent="Background Manager"]
+texture = ExtResource("7_boedq")
+
+[node name="Background5" type="Sprite3D" parent="Background Manager"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+texture = ExtResource("7_boedq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background Manager"]
+libraries = {
+"": SubResource("AnimationLibrary_spd1l")
+}
+autoplay = "BackgroundBlip"
+
+[node name="game_over_menu_v2" parent="." instance=ExtResource("7_l7pje")]
+process_mode = 3
